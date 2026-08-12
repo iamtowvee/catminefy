@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catminefy</title>
+
+        <link rel="stylesheet" href="../assets/css/general.css">
+        <link rel="stylesheet" href="../assets/css/roots.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Black+Ops+One&family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Electrolize&family=Exo:ital,wght@0,100..900;1,100..900&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Permanent+Marker&family=Shadows+Into+Light&family=Share+Tech&family=Six+Caps&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Varela+Round&display=swap" rel="stylesheet">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="sidebar">
+            <a href="home.html" class="sidebar-item">
+                <span class="icon">&#xf46d;</span>
+                <span class="label">Главная</span>
+                <span class="tooltip">Главная</span>
+            </a>
+            
+            <div class="sidebar-divider"></div>
+            
+            <a href="#" class="sidebar-item">
+                <span class="material-symbols-outlined">add</span>
+                <span class="label">Новый</span>
+                <span class="tooltip">Новый проект</span>
+            </a>
+            
+            <a href="#" class="sidebar-item">
+                <span class="material-symbols-outlined">folder</span>
+                <span class="label">Файлы</span>
+                <span class="tooltip">Файлы</span>
+            </a>
+            
+            <a href="#" class="sidebar-item">
+                <span class="material-symbols-outlined">edit</span>
+                <span class="label">Редактор</span>
+                <span class="tooltip">Редактор</span>
+            </a>
+            
+            <div class="sidebar-divider"></div>
+            
+            <a href="#" class="sidebar-item active">
+                <span class="icon">&#xf423;</span>
+                <span class="label">Настройки</span>
+                <span class="tooltip">Настройки</span>
+            </a>
+        </div>
+
+        <div class="content">
+            <section id="top">
+                <h1><i class="micon">&#xf013;</i> Настройки</h1>
+            </section>
+
+            <section>
+                <h3>Тема</h3>
+                <p>Текущая тема: <span id="curTheme"></span></p>
+                <br>
+                <button class="btn toTheme" data-tthm="light">Светлая тема</button>
+                <button class="btn toTheme" data-tthm="dark">Темная тема</button>
+            </section>
+
+            <section>
+                <h3>Язык</h3>
+                <p>Текущий язык: <span id="curLang"></span></p>
+                <br>
+                <button class="btn toLang" data-lnga="en_US">English</button>
+                <button class="btn toLang" data-lnga="ru_RU">Russian</button>
+            </section>
+
+            <section>
+                <h3>Автоматические обновления</h3>
+                <p></p>
+                <button class="btn">Включить</button>
+                <button class="btn">Выключить</button>
+            </section>
+
+            <section>
+                <h3>Кэш приложения</h3>
+                <p>Размер кэша: <span id="cache-size">Загрузка...</span></p>
+                <br>
+                <button class="btn" id="clear-cache-btn">Очистить кэш</button>
+                <button class="btn" onclick="location.reload();">Обновить окно</button>
+            </section>
+        </div>
+
+        <script src="../assets/js/lang.js"></script>
+        <script src="../assets/js/theme.js"></script>
+        <script src="../assets/js/search.js"></script>
+        <script src="../assets/js/modal.js" defer></script>
+        <script src="../assets/js/notifications.js"></script>
+        <script src="../assets/js/cache.js" defer></script>
+        <script src="../assets/js/fallback.js"></script>
+        <script src="../assets/js/gallery.js"></script>
+        <script src="../assets/js/scroll.js"></script>
+        <script src="../assets/js/loader.js"></script>
+        <script src="../assets/js/footer.js"></script>
+        <script src="../assets/js/menu.js"></script>
+    </body>
+</html>

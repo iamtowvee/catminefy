@@ -1,0 +1,16 @@
+{
+  "name": "catminefy",
+  "version": "2026/08-b01-alpha.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "run": "npx electron ."
+  },
+  "keywords": [],
+  "author": "iamtowvee",
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "dependencies": {
+    "electron": "^43.4.0"
+  }
+}

@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Monocraft';
+    src: url('../Monocraft.ttc') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --bg-primary: #e9dbc2;
+    --bg-ui-primary: #d6c4a4;
+    --accent-primary: #407397;
+    --accent-secondary: #8f6b00;
+    --accent-tr: #3D5A80;
+    --text-primary: #1A1A1A;
+    --text-secondary: #6C757D;
+    --text-light: #FEFEFE;
+    --gl-primary: rgba(0, 0, 0, 0.08);
+    --gl-secondary: rgba(0, 0, 0, 0.12);
+    --sd-primary: rgba(0, 0, 0, 0.15);
+    --bg-nav: rgba(0, 0, 0, 0.85);
+    --bg-footer: rgba(0, 0, 0, 1);
+    --bg-modal: rgb(226, 228, 233, 0.9);
+
+    --green: #3c9600;
+    --yellow: #ad7400;
+    --red: #af0000;
+    --orange: #994700;
+    --blue: #0d56b6;
+}
+
+:root[data-theme="dark"] {
+    --bg-primary: #1E104E;
+    --bg-ui-primary: #452E5A;
+    --accent-primary: #FF653F;
+    --accent-secondary: #FFC85C;
+    --accent-tr: #74A6CB;
+    --text-primary: #FEFDF2;
+    --text-secondary: #B9B9CE;
+    --text-light: #FFFFFF;
+    --gl-primary: rgba(255, 255, 255, 0.2);
+    --gl-secondary: rgba(255, 255, 255, 0.3);
+    --sd-primary: rgba(0, 0, 0, 0.3);
+    --bg-nav: rgba(0, 0, 0, 0.85);
+    --bg-footer: rgba(0, 0, 0, 0.5);
+    --bg-modal: rgba(0, 0, 0, 0.8);
+
+    --green: #99f15f;
+    --yellow: #ffc85c;
+    --red: #ff4517;
+    --orange: #e87f24;
+    --blue: #75a2dd;
+}
+
+@media (max-width: 1024px) {
+    :root[data-theme="light"] .footer {
+        background: rgba(0, 0, 0, 1);
+    }
+    
+    .footer {
+        background: var(--bg-footer);
+    }
+}
+
+[data-theme="dark"] .notification {
+    background: rgba(30, 16, 78, 0.95);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .notification .notification-title {
+    color: #FEFDF2;
+}
+
+[data-theme="dark"] .notification .notification-message {
+    color: #B9B9CE;
+}
+
+[data-theme="dark"] .notification.info {
+    border-left-color: #75a2dd;
+}
+[data-theme="dark"] .notification.warning {
+    border-left-color: #ffc85c;
+}
+[data-theme="dark"] .notification.error {
+    border-left-color: #ff4517;
+}
+[data-theme="dark"] .notification.success {
+    border-left-color: #99f15f;
+}
