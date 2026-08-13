@@ -24,22 +24,16 @@
             
             <div class="sidebar-divider"></div>
             
-            <a href="#" class="sidebar-item">
-                <span class="material-symbols-outlined">add</span>
-                <span class="label">Новый</span>
-                <span class="tooltip">Новый проект</span>
+            <a href="gradient-generator.html" class="sidebar-item">
+                <span class="icon">&#xf174a;</span>
+                <span class="label">Генератор градиентов</span>
+                <span class="tooltip">Генератор градиентов</span>
             </a>
             
-            <a href="#" class="sidebar-item">
-                <span class="material-symbols-outlined">folder</span>
-                <span class="label">Файлы</span>
-                <span class="tooltip">Файлы</span>
-            </a>
-            
-            <a href="#" class="sidebar-item">
-                <span class="material-symbols-outlined">edit</span>
-                <span class="label">Редактор</span>
-                <span class="tooltip">Редактор</span>
+            <a href="text-customize.html" class="sidebar-item">
+                <span class="icon">&#xf0061;</span>
+                <span class="label">Кастомизация текста</span>
+                <span class="tooltip">Кастомизация текста</span>
             </a>
             
             <div class="sidebar-divider"></div>
@@ -49,42 +43,96 @@
                 <span class="label">Настройки</span>
                 <span class="tooltip">Настройки</span>
             </a>
+            
+            <a href="about.html" class="sidebar-item">
+                <span class="icon">&#xf420;</span>
+                <span class="label">О программе</span>
+                <span class="tooltip">О программе</span>
+            </a>
         </div>
 
         <div class="content">
             <section id="top">
-                <h1><i class="micon">&#xf013;</i> Настройки</h1>
+                <h1>Настройки</h1>
             </section>
 
             <section>
-                <h3>Тема</h3>
+                <h2>Тема</h2>
                 <p>Текущая тема: <span id="curTheme"></span></p>
+                <br>
                 <br>
                 <button class="btn toTheme" data-tthm="light">Светлая тема</button>
                 <button class="btn toTheme" data-tthm="dark">Темная тема</button>
             </section>
 
             <section>
-                <h3>Язык</h3>
+                <h2>Язык</h2>
                 <p>Текущий язык: <span id="curLang"></span></p>
+                <br>
                 <br>
                 <button class="btn toLang" data-lnga="en_US">English</button>
                 <button class="btn toLang" data-lnga="ru_RU">Russian</button>
             </section>
 
             <section>
-                <h3>Автоматические обновления</h3>
-                <p></p>
+                <h2>Уведомления</h2>
+                <p>Показывать информационные уведомления: <span id="isNotifs"></span></p>
+                <br>
+                <br>
+                <button class="btn toNotifs" data-notifs="true">Включить</button>
+                <button class="btn toNotifs" data-notifs="false">Выключить</button>
+                <br>
+                <br>
+                <p>Показывать предупреждения: <span id="isWarns"></span></p>
+                <br>
+                <br>
+                <button class="btn toNotifs" data-warns="true">Включить</button>
+                <button class="btn toNotifs" data-warns="false">Выключить</button>
+                <br>
+                <br>
+                <p>Показывать ошибки: <span id="isErrors"></span></p>
+                <br>
+                <br>
+                <button class="btn toNotifs" data-errors="true">Включить</button>
+                <button class="btn toNotifs" data-errors="false">Выключить</button>
+                <br>
+                <br>
+                <p>Показывать уведомления об успехе: <span id="isSuccesses"></span></p>
+                <br>
+                <br>
+                <button class="btn toNotifs" data-successes="true">Включить</button>
+                <button class="btn toNotifs" data-successes="false">Выключить</button>
+                <br>
+                <br>
+                <br>
+                <button class="btn toNotifs" data-notifs="true" data-warns="true" data-errors="true" data-successes="true">Включить все</button>
+                <button class="btn toNotifs" data-notifs="false" data-warns="false" data-errors="false" data-successes="false">Выключить все</button>
+            </section>
+
+            <section>
+                <h2>Автоматические обновления</h2>
+                <p>Текущая версия: <span id="curVersion"></span></p>
+                <blockquote id="note-updates" class="note tip">
+                    <strong><span class="ans-icon"><span style="color: var(--green);">✔ Все в порядке</span></span></strong>
+                    <p>Обновлений не требуется. У вас последняя версия</p>
+                </blockquote>
+                <br>
+                <br>
                 <button class="btn">Включить</button>
                 <button class="btn">Выключить</button>
             </section>
 
             <section>
-                <h3>Кэш приложения</h3>
+                <h2>Кэш приложения</h2>
                 <p>Размер кэша: <span id="cache-size">Загрузка...</span></p>
+                <br>
                 <br>
                 <button class="btn" id="clear-cache-btn">Очистить кэш</button>
                 <button class="btn" onclick="location.reload();">Обновить окно</button>
+            </section>
+
+            <section>
+                <p>НЕ ЯВЛЯЕТСЯ ОФИЦИАЛЬНЫМ ПРОДУКТОМ MOJANG И НЕ ОДОБРЕН MOJANG. Catminefy не связан с Mojang или Microsoft.</p>
             </section>
         </div>
 

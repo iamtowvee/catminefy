@@ -1,0 +1,179 @@
+# English translations for Cameras Plugin
+# Language: English (en)
+
+# =================================================== #
+# =============== COMMANDS ========================== #
+# =================================================== #
+
+commands:
+  help:
+    header: "&e&l=== Cameras Plugin Help ==="
+    usage: "&7/cameras take <monitor|camera> &f- Get a camera/monitor head"
+    reload: "&7/cameras reload &f- Reload the plugin configuration"
+    craft: "&7/cameras craft <monitor|camera> &f- View craft"
+    version: "&7/cameras version &f- Show plugin version"
+    help: "&7/cameras help &f- Show this help"
+
+  take:
+    success_monitor: "&aYou received a monitor head!"
+    success_camera: "&aYou received a camera head!"
+    invalid_type: "&cInvalid type! Use: monitor or camera"
+    usage: "&cUsage: /cameras take <monitor|camera>"
+    player_only: "&cThis command is for players only!"
+
+  reload:
+    success: "&aPlugin configuration reloaded!"
+    no_permission: "&cYou don't have permission to do this!"
+
+  version:
+    line: "&e&lCameras Plugin &7v%version%"
+    author: "&7By %author%"
+    github: "&7%github%"
+
+# =================================================== #
+# =============== ITEMS ============================= #
+# =================================================== #
+
+items:
+  camera:
+    display: "&e&lCamera"
+    lore: ["&7Security camera,", "Minecraft doesn't seem the same anymore..."]
+  monitor:
+    display: "&b&lMonitor"
+    lore: ["&7Monitor for linking cameras,", "can store &e&l7 &7cameras &asimultaneously"]
+
+# =================================================== #
+# =============== CAMERA ============================ #
+# =================================================== #
+
+camera:
+  enter: "&aYou entered the camera!"
+  exit: "&aYou exited the camera!"
+  occupied: "&cThis camera is already in use!"
+  empty_slot: "&cEmpty camera slot!"
+  no_active_camera: "&cNo active camera selected!"
+  blocked: "&cCamera is blocked! There is a solid block above it."
+  blocked_info: "&7Allowed blocks above camera: glass or air."
+  not_found: "&cCamera not found at these coordinates!"
+  already_linked: "&cThis camera is already linked to another monitor!"
+  linked: "&aCamera successfully linked to slot %slot%!"
+  unlinked: "&eCamera unlinked!"
+  delete: "&aCamera deleted!"
+  delete_full_inv: "&aCamera deleted! Item dropped on the ground."
+  coords_got: "&aYou got camera coordinates: %coords%"
+  in_use: "&cCamera is in use, cannot delete!"
+  cant_move: "&cYou cannot move or rotate in the camera!"
+  cant_interact: "&cYou cannot interact in the camera!"
+  cant_break: "&cYou cannot break blocks in the camera!"
+  cant_place: "&cYou cannot place blocks in the camera!"
+  cant_attack: "&cYou cannot attack in the camera!"
+  cant_drop: "&cYou cannot drop items in the camera!"
+  cant_pickup: "&cYou cannot pickup items in the camera!"
+  already_in: "&cYou are already in a camera!"
+
+# =================================================== #
+# =============== MONITOR =========================== #
+# =================================================== #
+
+monitor:
+  placed: "&aMonitor placed! Use Shift+RMB to configure."
+  deleted: "&aMonitor deleted!"
+  unlinked: "&eCamera unlinked!"
+  info_linked: "&aMonitor is linked to camera: %coords%"
+  info_unlinked: "&cMonitor is not linked to any camera!"
+  break_first: "&cFirst remove the link through the monitor menu!"
+  cant_break_occupied: "&cCamera is occupied, cannot break!"
+  reload: "&eCamera link reset!"
+
+# =================================================== #
+# =============== GUI =============================== #
+# =================================================== #
+
+gui:
+  title: "&8Monitor - Link Cameras"
+  camera_prefix: "&e&lCamera"
+  coords: "&7Coordinates&e"
+  world: "&7World&e"
+  active_camera: "&a&lACTIVE CAMERA"
+  slot_empty: "&cSlot empty"
+  unbind_camera: "&3&lUNBIND CAMERA"
+  unbind_camera_lore: "&7Click to unbind this camera"
+  delete_monitor: "&c&lDELETE MONITOR"
+  delete_monitor_lore: "&7Deletes the monitor and all bindings"
+  exit: "&c&lEXIT"
+  exit_lore: "&7Close the menu"
+  slot_locked: "&cThis slot is locked!"
+  cant_take_item: "&cYou cannot take items from this slot!"
+  camera_selected: "&aCamera %slot% selected!"
+  camera_unbound: "&eCamera %slot% unbound!"
+  slot_occupied: "&cThis slot is already occupied!"
+  inventory_full: "&eInventory is full! Item dropped on the ground."
+  item_returned: "&cItem returned to inventory!"
+  info_slot: "&eThis is an information slot!"
+
+  craft:
+    monitor_title: "&8Craft Monitor"
+    camera_title: "&8Craft Camera"
+    close: "&c&lCLOSE"
+    recipe_not_found: "&cRecipe for %type% not found!"
+
+  state:
+    linked: "&a&lLINKED TO CAMERA"
+    linked_lore:
+      - "&7Coordinates: &f%x%, %y%, %z%"
+      - "&7World: &f%world%"
+      - ""
+      - "&7To change the camera, click"
+      - "&7the &eRESET LINK &7button"
+    unlinked: "&c&lNOT LINKED"
+    unlinked_lore:
+      - "&7Drop an item with coordinates"
+      - "&7in the empty slot"
+      - ""
+      - "&7Format: &fX,Y,Z"
+      - "&7Example: &f52,89,-101"
+
+  coordinate_slot: "&e&lDROP ITEM HERE"
+  coordinate_slot_lore:
+    - "&7Drop an item with coordinates"
+    - "&7in the format: &fX,Y,Z"
+    - "&7Example: &f52,89,-101"
+
+  reload_button: "&e&lRESET LINK"
+  reload_button_lore:
+    - "&7Click to reset the camera link"
+    - ""
+    - "&7After reset you can"
+    - "&7link another camera"
+
+  delete_button: "&c&lDELETE MONITOR"
+  delete_button_lore:
+    - "&7Click to delete this monitor"
+    - "&7and all its links"
+    - ""
+    - "&c&lWARNING: This cannot be undone!"
+
+# =================================================== #
+# =============== BLOCK ============================= #
+# =================================================== #
+
+block:
+  monitor_placed: "&aMonitor placed! Use Shift+RMB to configure."
+  camera_placed: "&aCamera placed! Use Shift+RMB with an item to get coordinates."
+  monitor_broken: "&aMonitor broken!"
+  camera_broken: "&aCamera broken!"
+  link_removed: "&cLink to monitor removed!"
+  cant_break_linked: "&cFirst remove the link through the monitor menu!"
+  cant_break_occupied: "&cCamera is occupied, cannot break!"
+
+# =================================================== #
+# =============== ERRORS ============================ #
+# =================================================== #
+
+errors:
+  invalid_format: "&cInvalid format! Use: X,Y,Z (example: 52,89,-101)"
+  no_permission: "&cYou don't have permission to do this!"
+  player_only: "&cThis command is for players only!"
+  already_linked: "&cThis camera is already linked to another monitor!"
+  not_found: "&cCamera not found at these coordinates!"
+  link_failed: "&cFailed to link camera!"

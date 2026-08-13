@@ -1,0 +1,25 @@
+# recipes.yml
+recipes:
+  monitor:
+    enabled: true
+    result: "cameras:monitor"
+    shape:
+      - "III"
+      - "GRG"
+      - "SSS"
+    ingredients:
+      I: "minecraft:iron_ingot"
+      R: "minecraft:redstone_torch"
+      S: "minecraft:stone"
+      G: "minecraft:glass_pane"
+
+  camera:
+    enabled: true
+    result: "cameras:camera"
+    shape:
+      - "III"
+      - "IGI"
+      - "III"
+    ingredients:
+      G: "minecraft:glass_pane"
+      I: "minecraft:iron_ingot"

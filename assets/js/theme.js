@@ -24,12 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!themeButtons || themeButtons.length === 0) {
         console.warn('Кнопки .toTheme не найдены');
-        return;
     }
     
     if (!curt) {
         console.warn('Элемент #curTheme не найден');
-        return;
     }
     
     const currentLang = localStorage.getItem('lang') || 'en_US';
@@ -56,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const notif = langs[lang].notifications;
             const themeName = langs[lang][newTheme];
-            window.notifications.info(notif.title, notif.message + themeName);
+            window.notifications.success(notif.title, notif.message + themeName);
             
             updateCurrentThemeDisplay(newTheme, lang, langs, curt);
             updateActiveButton(newTheme, themeButtons);

@@ -1,0 +1,1109 @@
+/* assets/css/general.css */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bahianita&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Bungee&family=Changa:wght@200..800&family=Cinzel:wght@400..900&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Exo:ital,wght@0,100..900;1,100..900&family=Frijole&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Jockey+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Kode+Mono:wght@400..700&family=Major+Mono+Display&family=Mogra&family=Monomakh&family=Montenegrin+Gothic+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nova+Mono&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Play:wght@400;700&family=Poller+One&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300..700&family=Righteous&family=Rock+Salt&family=Share+Tech&family=Smooch+Sans:wght@100..900&family=Tourney:ital,wght@0,100..900;1,100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Unbounded:wght@200..900&family=Viga&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Кастомное выделение текста */
+::selection {
+    background: var(--selection-bg);
+    color: var(--selection-color);
+}
+
+[id] {
+  scroll-margin-top: 16vh;
+}
+
+.lgal {
+    font-family: "Bahianita", monospace;
+}
+
+.extl {
+    font-family: "Orbitron", monospace;
+    font-weight: 800;
+}
+
+.extls {
+    font-family: "Orbitron", monospace;
+}
+
+.clang {
+    font-family: "Jockey One", monospace;
+}
+
+/* Для Firefox */
+::-moz-selection {
+    background: var(--selection-bg);
+    color: var(--selection-color);
+}
+
+body {
+    font-family: "JetBrains Mono", monospace; /* Barlow */
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 0 1rem;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+.mut {
+    color: var(--text-muted);
+}
+
+.inscript {
+    font-weight: 600;
+}
+
+.added {
+    display: inline;
+    color: var(--success);
+}
+
+.edited {
+    color: var(--warning);
+}
+
+.deleted {
+    color: var(--danger);
+}
+
+.notif {
+    color: var(--accent);
+}
+
+.file-link {
+    font-family: "Ubuntu Mono", monospace;
+    text-decoration: none;
+    word-spacing: normal;
+}
+
+a {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    color: var(--accent);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: none;
+}
+
+.awu {
+    text-decoration: none;
+}
+
+.footer-links li a, .nav-menu li a {
+    text-decoration: none;
+}
+
+details summary {
+  list-style: none;
+    height: 1;
+    vertical-align: middle;
+}
+details summary::-webkit-details-marker {
+  display: none;
+    vertical-align: middle;
+}
+
+.detail {
+  transition: opacity 0.3s ease;
+}
+
+.detail-content {
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.4s ease;
+  display: block;
+  height: 0; /* Фиксируем высоту */
+}
+
+.detail[open] .detail-content {
+  transform: scaleY(1);
+  opacity: 1;
+  height: auto; /* Раскрываем */
+}
+
+header {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.nav-brand {
+    font-family: "Bebas Neue", monospace;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    height: 1.6;
+    gap: 1rem;
+}
+
+.nav-brand i {
+    font-size: 1.4rem;
+}
+
+.nav-brand span {
+    font-size: 1.6em;
+}
+
+.nav-brand img {
+    font-size: 1.4rem;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.nav-menu a i {
+    font-size: 0.9rem;
+}
+
+.nav-menu a:hover {
+    color: var(--text-primary);
+    border-bottom-color: var(--accent);
+    text-decoration: none;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#theme-toggle,
+.nav-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    line-height: 1;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#theme-toggle:hover,
+.nav-toggle:hover {
+    background: var(--bg-hover);
+    border-color: var(--text-muted);
+    color: var(--text-primary);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.3rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 0.5rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+h1 i {
+    font-size: 2.2rem;
+    color: var(--accent);
+}
+
+h1 b {
+    font-size: 2.2rem;
+    color: var(--accent);
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 1.5rem 0 0.75rem 0;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    vertical-align: middle;
+}
+
+h2 i {
+    font-size: 1.6rem;
+    color: var(--accent);
+}
+
+h2 b {
+    font-size: 1.6rem;
+    color: var(--accent);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    vertical-align: middle;
+}
+
+h3 i {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+h3 b {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+h4 {
+    font-size: 1rem;
+    margin: 1.5rem 0 -1rem 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    vertical-align: middle;
+}
+
+h4 i {
+    font-size: 1rem;
+    vertical-align: middle;
+    color: var(--accent);
+}
+
+p {
+    display: inline-block;
+    padding-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+sup {
+    font-size: 0.7rem;
+}
+
+.numl {
+    color: var(--text-primary);
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.btn i {
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-hover);
+    border-color: var(--text-muted);
+    text-decoration: none;
+}
+
+ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+ul li, ol li {
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+ul li i, ol li i {
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+}
+
+/* ===== ТАБЛИЦЫ ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+thead {
+    background: var(--bg-secondary);
+    border-bottom: 2px solid var(--border-color);
+}
+
+th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+th i {
+    margin-right: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.tdic {
+    margin-right: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+th, td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tdl {
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--table-stripe);
+}
+
+tbody tr:hover {
+    background: var(--bg-hover);
+}
+
+/* Выравнивание первого столбца по центру */
+table td:first-child {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Растягиваем колонки на всю ширину */
+table td:last-child,
+table th:last-child {
+    width: 100%;
+}
+
+/* Запрещаем перенос в первых двух колонках */
+table td:first-child,
+table th:first-child,
+table td:nth-child(2),
+table th:nth-child(2) {
+    white-space: nowrap;
+}
+
+hr {
+    margin-bottom: 1rem;
+}
+
+/* ===== БЕЙДЖ ===== */
+.badge {
+    display: inline-block;
+    font-family: "Ubuntu Mono", monospace;
+    word-spacing: normal;
+    padding: 0 0.5rem;
+    background: var(--bg-primary-2);
+    border: 1px solid var(--text-secondary-2);
+    border-radius: 0.5rem;
+    vertical-align: middle;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.badge.note {
+    color: var(--accent);
+}
+
+.badge.ad {
+    color: var(--ad);
+}
+
+.badge.tip {
+    color: var(--success);
+}
+
+.badge.warning {
+    color: var(--warning);
+}
+
+.badge.important {
+    color: var(--important);
+}
+
+.badge.caution {
+    color: var(--danger);
+}
+
+/* ===== ОСТАЛЬНЫЕ СТИЛИ ===== */
+blockquote {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--text-secondary);
+    background: var(--blockquote-bg);
+    border-radius: 0.25rem;
+    color: var(--text-secondary);
+}
+
+blockquote.note {
+    border-left-color: var(--accent);
+}
+
+blockquote.ad {
+    border-left-color: var(--ad);
+}
+
+blockquote.note.tip {
+    border-left-color: var(--success);
+}
+
+blockquote.note.warning {
+    border-left-color: var(--warning);
+}
+
+blockquote.note.important {
+    border-left-color: var(--important);
+}
+
+blockquote.note.caution {
+    border-left-color: var(--danger);
+}
+
+blockquote strong {
+    font-family: "Quantico", monospace;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+blockquote.note strong {
+    color: var(--accent);
+}
+
+blockquote.ad strong {
+    color: var(--ad);
+}
+
+blockquote.note.tip strong {
+    color: var(--success);
+}
+
+blockquote.note.warning strong {
+    color: var(--warning);
+}
+
+blockquote.note.important strong {
+    color: var(--important);
+}
+
+blockquote.note.caution strong {
+    color: var(--danger);
+}
+
+blockquote strong i {
+    font-size: 1rem;
+}
+
+blockquote p {
+    margin-bottom: 0;
+}
+
+.code-block {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow);
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.code-lang {
+    font-family: "Share Tech", monospace;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    font-weight: 800;
+    opacity: 0.8;
+}
+
+.code-lang i {
+    font-size: 1rem;
+    opacity: 1;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.25rem;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.copy-btn i {
+    font-size: 0.85rem;
+}
+
+.copy-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+/*
+.code-block pre {
+    padding: 1rem;
+    margin: 0;
+    overflow-x: auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.code-block code {
+    font-family: "Ubuntu Mono", monospace;
+    word-spacing: normal;
+    font-weight: var(--weight-style);
+    display: block;
+    white-space: pre;
+}
+*/
+.hl-keyword { color: var(--hl-keyword); font-weight: var(--weight-style); }
+.hl-string { color: var(--hl-string); font-weight: var(--weight-style); }
+.hl-number { color: var(--hl-number); font-weight: var(--weight-style); }
+.hl-function { color: var(--hl-function); font-weight: var(--weight-style); }
+.hl-comment { color: var(--hl-comment); }
+.hl-operator { color: var(--hl-operator); font-weight: var(--weight-style); }
+.hl-variable { color: var(--hl-variable); }
+.hl-type { color: var(--hl-type); font-weight: var(--weight-style); }
+.hl-literal { color: var(--hl-literal); font-weight: var(--weight-style); }
+.hl-builtin { color: var(--hl-builtin); font-weight: var(--weight-style); }
+.hl-decorator { color: var(--hl-decorator); font-weight: var(--weight-style); }
+
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: var(--bg-secondary);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-content p {
+    font-family: "Bebas Neue", monospace;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.footer-links a:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.footer-links a i {
+    font-size: 1.1rem;
+}
+
+/* ===== АДАПТИВНОСТЬ ДЛЯ ТАБЛИЦ ===== */
+@media (max-width: 768px) {
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 1.5rem 0;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow);
+    }
+    
+    .table-wrapper table {
+        min-width: 500px;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
+
+/* ===== КАСТОМНЫЕ ТУЛТИПЫ ===== */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip-box {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family: "Montserrat", monospace;
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 1000;
+}
+
+.tooltip-box i {
+    margin-right: 0.4rem;
+}
+
+.tooltip-arrow {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    border: 5px solid transparent;
+    border-top-color: var(--bg-tertiary);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 1000;
+}
+
+[data-tooltip]:hover .tooltip-box,
+[data-tooltip]:hover .tooltip-arrow,
+[data-tooltip]:focus .tooltip-box,
+[data-tooltip]:focus .tooltip-arrow {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/* ===== НУМЕРАЦИЯ СТРОК В КОДЕ ===== */
+.code-block pre {
+    min-height: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: var(--code-bg);
+    border-radius: 0 0 0.5rem 0.5rem;
+    overflow: auto;
+    display: flex; /* Добавляем flex на pre */
+}
+
+.code-block .code-wrapper {
+    display: flex;
+    min-width: max-content;
+    flex: 1; /* Растягиваем на всю ширину */
+    align-items: stretch;
+}
+
+.code-block .line-numbers {
+    flex-shrink: 0;
+    padding: 1rem 0.75rem 1rem 0.15rem; /* Уменьшил левый паддинг с 0.75rem до 0.25rem */
+    text-align: right;
+    color: var(--text-muted);
+    font-family: "Ubuntu Mono", monospace;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    user-select: none;
+    border-right: 1px solid var(--border-color);
+    background: var(--code-bg);
+    min-width: 1.2rem; /* Уменьшил с 2.5rem до 1.8rem */
+    white-space: pre;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100%;
+}
+
+.code-block .line-numbers span {
+    display: block;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.code-block .line-numbers span:hover {
+    opacity: 1;
+}
+
+.code-block .code-content {
+    padding: 1rem;
+    background: var(--code-bg);
+    flex: 1;
+    align-self: stretch;
+    min-height: 100%; /* Принудительно на всю высоту */
+}
+
+.code-block .code-content code {
+    font-family: "Ubuntu Mono", monospace;
+    word-spacing: normal;
+    font-weight: var(--weight-style);
+    display: block;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 1.2rem;
+}
+
+/* Токены внутри строки - inline */
+.code-block .code-content code span {
+    display: inline;
+    line-height: 1.6;
+}
+
+/* Обёртка строки - block */
+.code-block .code-content code > span {
+    display: block;
+    line-height: 1.6;
+    white-space: pre;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .code-block .line-numbers {
+        font-size: 0.8rem;
+        padding: 0.75rem 0.5rem 0.75rem 0.15rem;
+        min-width: 1.2rem;
+    }
+    
+    .code-block .code-content {
+        padding: 0.75rem;
+    }
+    
+    .code-block .code-content code {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .code-block .line-numbers {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.4rem 0.5rem 0.1rem;
+        min-width: 1rem;
+    }
+    
+    .code-block .code-content {
+        padding: 0.5rem;
+    }
+    
+    .code-block .code-content code {
+        font-size: 0.7rem;
+    }
+}
+
+/* ===== КАРТОЧКА УЧАСТНИКА ===== */
+.member-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: var(--bg-secondary);
+    padding: 0.75rem 1.5rem 0.75rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    flex: 1;
+    word-spacing: normal;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.member-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 30px rgba(88, 166, 255, 0.08);
+}
+
+.member-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.member-avatar {
+    width: 40px;  /* ← БЫЛО 48px, СТАЛО 40px */
+    height: 40px; /* ← БЫЛО 48px, СТАЛО 40px */
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bg-primary-2);
+    flex-shrink: 0;
+    overflow: hidden; /* Добавил, чтобы не обрезалось */
+}
+
+.member-avatar i {
+    color: var(--accent);
+    font-size: 1.2rem; /* ← БЫЛО 1.4rem, СТАЛО 1.2rem */
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Чтобы картинка не обрезалась */
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.member-name {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1rem; /* ← БЫЛО 1.1rem, СТАЛО 1rem */
+}
+
+.member-desc {
+    color: var(--text-secondary);
+    font-size: 0.8rem; /* ← БЫЛО 0.85rem, СТАЛО 0.8rem */
+}
+
+.member-desc .role {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.member-btn {
+    color: var(--text-secondary);
+    transition: color 0.2s, transform 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;  /* ← БЫЛО 36px, СТАЛО 32px */
+    height: 32px; /* ← БЫЛО 36px, СТАЛО 32px */
+    border-radius: 50%;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.member-btn:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+    background: var(--bg-tertiary);
+    border-color: var(--accent);
+}
+
+.member-btn i {
+    font-size: 0.8rem; /* ← БЫЛО 0.9rem, СТАЛО 0.8rem */
+}
+
+/* Профиль */
+.member-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.member-avatar-pf {
+    width: 64px;  /* ← БЫЛО 48px, СТАЛО 40px */
+    height: 64px; /* ← БЫЛО 48px, СТАЛО 40px */
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bg-primary-2);
+    flex-shrink: 0;
+    overflow: hidden; /* Добавил, чтобы не обрезалось */
+}
+
+.member-avatar-pf i {
+    color: var(--accent);
+    font-size: 2rem; /* ← БЫЛО 1.4rem, СТАЛО 1.2rem */
+}
+
+.member-avatar-pf img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Чтобы картинка не обрезалась */
+}
+
+.member-info-pf {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+.member-name-pf {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 2rem;
+}
+
+.member-btn-pf {
+    color: var(--text-secondary);
+    transition: color 0.2s, transform 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;  /* ← БЫЛО 36px, СТАЛО 32px */
+    height: 32px; /* ← БЫЛО 36px, СТАЛО 32px */
+    border-radius: 50%;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-bottom: 2rem;
+}
+
+.member-btn-pf:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+    background: var(--bg-tertiary);
+    border-color: var(--accent);
+}
+
+.member-btn-pf i {
+    font-size: 0.8rem; /* ← БЫЛО 0.9rem, СТАЛО 0.8rem */
+}
+
+.without-und {
+    text-decoration: none;
+    color: var(--text-secondary);
+}

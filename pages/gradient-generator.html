@@ -16,30 +16,24 @@
     </head>
     <body>
         <div class="sidebar">
-            <a href="#" class="sidebar-item active">
-                <span class="icon">&#xf4e2;</span>
+            <a href="home.html" class="sidebar-item">
+                <span class="icon">&#xf46d;</span>
                 <span class="label">Главная</span>
                 <span class="tooltip">Главная</span>
             </a>
             
             <div class="sidebar-divider"></div>
             
-            <a href="#" class="sidebar-item">
-                <span class="material-symbols-outlined">add</span>
-                <span class="label">Новый</span>
-                <span class="tooltip">Новый проект</span>
+            <a href="#" class="sidebar-item active">
+                <span class="icon">&#xf174a;</span>
+                <span class="label">Генератор градиентов</span>
+                <span class="tooltip">Генератор градиентов</span>
             </a>
             
-            <a href="#" class="sidebar-item">
-                <span class="material-symbols-outlined">folder</span>
-                <span class="label">Файлы</span>
-                <span class="tooltip">Файлы</span>
-            </a>
-            
-            <a href="#" class="sidebar-item">
-                <span class="material-symbols-outlined">edit</span>
-                <span class="label">Редактор</span>
-                <span class="tooltip">Редактор</span>
+            <a href="text-customize.html" class="sidebar-item">
+                <span class="icon">&#xf0061;</span>
+                <span class="label">Кастомизация текста</span>
+                <span class="tooltip">Кастомизация текста</span>
             </a>
             
             <div class="sidebar-divider"></div>
@@ -49,40 +43,78 @@
                 <span class="label">Настройки</span>
                 <span class="tooltip">Настройки</span>
             </a>
+            
+            <a href="about.html" class="sidebar-item">
+                <span class="icon">&#xf420;</span>
+                <span class="label">О программе</span>
+                <span class="tooltip">О программе</span>
+            </a>
         </div>
 
         <div class="content">
             <section id="top">
-                <h1><i class="micon">&#xf46d;</i> Главная</h1>
+                <h1>Генератор градиентов</h1>
             </section>
 
-            <section class="cards-section">
-                <h3><i class="micon">&#xf425;</i> Инструменты</h3>
-                <div class="cards-grid">
-                    <div class="card">
-                        <img src="../assets/icons/mks/preview/d41d8cd98f00b204/3.jpg" 
-                            alt="Генератор градиентов" 
-                            class="gallery-trigger">
-                        <div class="card-content">
-                            <h3>Генератор градиентов</h3>
-                            <p>Различные градиенты на любой вкус и цвет</p>
-                            
-                            <div class="card-btns">
-                                <button class="btn card-btn modal-trigger" onclick="location.href = 'gradient-generator.html'">Перейти</button>
-                            </div>
+            <section>
+                <!-- Текст -->
+                <div class="control-group">
+                    <label>📝 Текст:</label>
+                    <input type="text" id="gradientText" value="Catminefy" class="text-input" spellcheck="false">
+                </div>
+
+                <!-- Формат вывода -->
+                <div class="control-group">
+                    <label>📋 Формат вывода:</label>
+                    <select id="formatSelect">
+                        <option value="hex">&#xRRGGBB (HEX)</option>
+                        <option value="legacy-hex">§x§R§R§G§G§B§B (Legacy HEX)</option>
+                        <option value="tagged" selected>&lt;#RRGGBB&gt;текст&lt;/#RRGGBB&gt;</option>
+                        <option value="mccode">§code (стандартный)</option>
+                        <option value="ampersand">&amp;code (альтернативный)</option>
+                        <option value="minimessage">&lt;gradient&gt; (MiniMessage)</option>
+                    </select>
+                </div>
+
+                <!-- Список цветов -->
+                <div class="color-list" id="colorList">
+                    <!-- Цвета будут добавляться сюда -->
+                </div>
+
+                <!-- Кнопки управления цветами -->
+                <div class="color-actions">
+                    <button class="btn" id="addColor"><span class="ans-icon"><span style="color: var(--green);">＋ Добавить цвет</span></span></button>
+                    <button class="btn" id="removeColor"><span class="ans-icon"><span style="color: var(--red);">✘ Удалить последний</span></span></button>
+                    <button class="btn" id="clearColors"><span class="ans-icon"><span style="color: var(--red);">☠ Очистить всё</span></span></button>
+                    <button class="btn" id="randomColors"><span class="ans-icon"><span style="color: var(--yellow);">✎ Случайные</span></span></button>
+                </div>
+
+                <!-- Превью -->
+                <div class="gradient-preview">
+                    <span id="previewText">Catminefy</span>
+                </div>
+
+                <!-- Результат -->
+                <div class="gradient-result">
+                    <h4>Готовый код:</h4>
+                    <div class="code-block" data-lang="txt">
+                        <div class="code-header">
+                            <span class="code-lang">Minecraft</span>
+                            <button class="copy-btn" data-target="mcOutput">Копировать</button>
+                        </div>
+                        <div class="code-content">
+                            <pre><code id="mcOutput">§cCatminefy</code></pre>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
 
+        <script src="../assets/js/gradient.js"></script>
+        <script src="../assets/js/copy.js"></script>
         <script src="../assets/js/lang.js"></script>
-        <script src="../assets/js/theme.js" defer></script>
-        <script src="../assets/js/search.js"></script>
-        <script src="../assets/js/modal.js" defer></script>
+        <script src="../assets/js/theme.js"></script>
         <script src="../assets/js/notifications.js"></script>
-        <script src="../assets/js/fallback.js"></script>
-        <script src="../assets/js/gallery.js"></script>
         <script src="../assets/js/scroll.js"></script>
         <script src="../assets/js/loader.js"></script>
         <script src="../assets/js/footer.js"></script>

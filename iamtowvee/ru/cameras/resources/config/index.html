@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>iat | ru/cameras/config</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../../assets/css/theme.css">
+    <link rel="stylesheet" href="../../../../assets/css/general.css">
+    <link rel="stylesheet" href="../../../../assets/css/mobile.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-brand">
+                <!--<i class="fas fa-code"></i>-->
+                <div class="member-avatar" style="border-color: var(--accent);">
+                    <img src="../../../../assets/icons/iamtowvee.png" alt="iat">
+                </div>
+                <span>IAMTOWVEE</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> Документация</a></li>
+                <li><a href="#"><i class="fas fa-laptop-code"></i> Примеры</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Сообщество</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" aria-label="Меню">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <a href="../../index.html" class="without-und">
+            <span class="member-btn-pf">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span>Назад</span>
+        </a>
+        <section>
+            <h1 style="justify-content: center;">Cameras Config</h1>
+        </section>
+        
+        <hr>
+        
+        <section>
+            <h3><i class="fas fa-cogs"></i> config.yml</h3>
+            <div class="code-block" data-lang="yml">
+                <div class="code-header">
+                    <span class="code-lang">
+                        <i class="fas fa-cog"></i> YAML
+                    </span>
+                    <button class="copy-btn" data-target="code1">
+                        <i class="fas fa-copy"></i> Копировать
+                    </button>
+                </div>
+                <pre><code id="code1" class="language-yml"># = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
+#                                                                                                 #
+#         .d8888b.                                                                                #
+#        d88P  Y88b                                                                               #
+#        888    888                                                                               #
+#        888         8888b.  88888b.d88b.   .d88b.  888d888 8888b.  .d8888b                       #
+#        888            "88b 888 "888 "88b d8P  Y8b 888P"      "88b 88K                           #
+#        888    888 .d888888 888  888  888 88888888 888    .d888888 "Y8888b.                      #
+#        Y88b  d88P 888  888 888  888  888 Y8b.     888    888  888      X88       version        #
+#         "Y8888P"  "Y888888 888  888  888  "Y8888  888    "Y888888  88888P'     2026.08-b03      #
+#                                                                                                 #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
+#   GitHub        #     https://github.com/iamtowvee/cameras                                      #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
+#   License       #     https://github.com/iamtowvee/cameras/blob/main/LICENSE                    #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
+#                 #     Cameras is a completely free camera plugin for Minecraft Java 1.21.11     #
+#   Description   #     for Paper/Spigot/Bukkit. It adds security camera functionality directly   #
+#                 #     to the game without any third-party modifications.                        #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
+#                 #     /cameras help                                                             #
+#   Commands      #     /cameras version                                                          #
+#                 #     /cameras take &lt;camera|monitor&gt;                                            #
+#                 #     /cameras craft &lt;camera|monitor&gt;                                           #
+#                 #     /cameras reload                                                           #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
+
+# enabled - Is the plugin enabled?
+# If "true", the plugin is enabled
+#
+#     [!] If you disable the plugin, its commands will also stop working
+#
+# Default value: true
+enabled: true 
+
+# autoCheckUpdates - Automatically check for updates
+# If "true", then checks for updates every time the server starts
+#
+#     [!] It may overload the server with unnecessary requests and may slow down the server loading
+#
+# Default value: true
+autoCheckUpdates: true
+
+# lang - The language in which the plugin messages will be displayed
+# Acceptable values:
+#   - "en": English
+#   - "ru": Russian
+#   - "ro": Romana
+#   - "de": Deutsch
+#   - "it": Italian
+#   - "fr": French
+#   - "es": Spanish
+#
+#     [!] Now work only "en" and "ru"
+#
+# Default value: en
+lang: en
+
+# saveDataFormat - Data storage format
+# Available: "sqlite" (data.db) or "yaml" (data.yml)
+#
+#     [!] SQLite is not human-readable; Will be in future versions
+#
+# Default value: true
+saveDataFormat: yaml
+
+# allowedOverCameraBlocks - Whitelist of blocks that can be located above the camera
+# If there is a block above the camera that is not in the list, the camera will not open
+#
+#     [!] If solid block is allowed, then in some cases there may be x-ray to see through blocks
+#         If the "Do not render foliage transparency" option (or something similar) is set in the settings,
+#         then the block is also considered solid
+#
+# Default value:
+#  - AIR
+#  - GLASS
+#  - TINTED_GLASS
+#  - WHITE_STAINED_GLASS
+#  - LIGHT_GRAY_STAINED_GLASS
+#  - GRAY_STAINED_GLASS
+#  - BLACK_STAINED_GLASS
+#  - BROWN_STAINED_GLASS
+#  - RED_STAINED_GLASS
+#  - ORANGE_STAINED_GLASS
+#  - YELLOW_STAINED_GLASS
+#  - LIME_STAINED_GLASS
+#  - GREEN_STAINED_GLASS
+#  - CYAN_STAINED_GLASS
+#  - LIGHT_BLUE_STAINED_GLASS
+#  - BLUE_STAINED_GLASS
+#  - PURPLE_STAINED_GLASS
+#  - MAGENTA_STAINED_GLASS
+#  - PINK_STAINED_GLASS
+#  - GLASS_PANE
+#  - WHITE_STAINED_GLASS_PANE
+#  - LIGHT_GRAY_STAINED_GLASS_PANE
+#  - GRAY_STAINED_GLASS_PANE
+#  - BLACK_STAINED_GLASS_PANE
+#  - BROWN_STAINED_GLASS_PANE
+#  - RED_STAINED_GLASS_PANE
+#  - ORANGE_STAINED_GLASS_PANE
+#  - YELLOW_STAINED_GLASS_PANE
+#  - LIME_STAINED_GLASS_PANE
+#  - GREEN_STAINED_GLASS_PANE
+#  - CYAN_STAINED_GLASS_PANE
+#  - LIGHT_BLUE_STAINED_GLASS_PANE
+#  - BLUE_STAINED_GLASS_PANE
+#  - PURPLE_STAINED_GLASS_PANE
+#  - MAGENTA_STAINED_GLASS_PANE
+#  - PINK_STAINED_GLASS_PANE
+allowedOverCameraBlocks:
+  - AIR
+  - GLASS
+  - TINTED_GLASS
+  - WHITE_STAINED_GLASS
+  - LIGHT_GRAY_STAINED_GLASS
+  - GRAY_STAINED_GLASS
+  - BLACK_STAINED_GLASS
+  - BROWN_STAINED_GLASS
+  - RED_STAINED_GLASS
+  - ORANGE_STAINED_GLASS
+  - YELLOW_STAINED_GLASS
+  - LIME_STAINED_GLASS
+  - GREEN_STAINED_GLASS
+  - CYAN_STAINED_GLASS
+  - LIGHT_BLUE_STAINED_GLASS
+  - BLUE_STAINED_GLASS
+  - PURPLE_STAINED_GLASS
+  - MAGENTA_STAINED_GLASS
+  - PINK_STAINED_GLASS
+  - GLASS_PANE
+  - WHITE_STAINED_GLASS_PANE
+  - LIGHT_GRAY_STAINED_GLASS_PANE
+  - GRAY_STAINED_GLASS_PANE
+  - BLACK_STAINED_GLASS_PANE
+  - BROWN_STAINED_GLASS_PANE
+  - RED_STAINED_GLASS_PANE
+  - ORANGE_STAINED_GLASS_PANE
+  - YELLOW_STAINED_GLASS_PANE
+  - LIME_STAINED_GLASS_PANE
+  - GREEN_STAINED_GLASS_PANE
+  - CYAN_STAINED_GLASS_PANE
+  - LIGHT_BLUE_STAINED_GLASS_PANE
+  - BLUE_STAINED_GLASS_PANE
+  - PURPLE_STAINED_GLASS_PANE
+  - MAGENTA_STAINED_GLASS_PANE
+  - PINK_STAINED_GLASS_PANE</code></pre>
+            </div>
+        </section>
+        
+        <hr>
+        
+        <section>
+            <h1><i class="fas fa-download"></i> Скачать</h1>
+            <div class="button-group">
+                <a class="btn btn-primary awu" href="./config.yml" download><i class="fas fa-file-download"></i>Скачать config.yml</a>
+                <a class="btn btn-secondary awu" target="_blank" href="./config.yml"><i class="fas fa-file-code"></i> Raw-файл config.yml</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>
+                <i class="fas fa-copyright"></i> 2026 iamtowvee
+            </p>
+            <ul class="footer-links">
+                <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../../../assets/js/theme.js"></script>
+    <script src="../../../../assets/js/tooltip.js"></script>
+    <script src="../../../../assets/js/nav.js"></script>
+    <script src="../../../../assets/js/syntax.js"></script>
+    <script src="../../../../assets/js/copy.js"></script>
+</body>
+</html>

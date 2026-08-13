@@ -1,0 +1,88 @@
+/* assets/css/themes.css */
+:root {
+    --bg-primary: #0d1117;
+    --bg-primary-2: #0d11175f;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #1c2333;
+    --bg-hover: #30363d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --text-secondary-2: #8b949e76;
+    --text-muted: #484f58;
+    --border-color: #30363d;
+    --accent: #58a6ff;
+    --accent-hover: #79c0ff;
+    --danger: #f85149;
+    --success: #3fb950;
+    --warning: #d29922;
+    --orange: #ef3f0f;
+    --sk-text: #ccbcab;
+    --important: #926eae;
+    --ad: #febb63;
+    --code-bg: #0d1117;
+    --code-border: #30363d;
+    --table-stripe: #161b22;
+    --blockquote-bg: #1c2333;
+    --selection-bg: #ffffff;
+    --selection-color: #000000;
+    --shadow: 0 8px 24px rgba(0,0,0,0.5);
+    
+    --hl-keyword: #ff7b72;
+    --hl-string: #a5d6ff;
+    --hl-number: #79c0ff;
+    --hl-function: #d2a8ff;
+    --hl-comment: #8b949e;
+    --hl-operator: #ff7b72;
+    --hl-variable: #ffa657;
+    --hl-literal: #f1d182;
+    --hl-type: #ffa657;
+    --hl-builtin: #d2a8ff;
+    --hl-decorator: #d2a8ff;
+    
+    --weight-style: 400;
+    --outlined-style: none;
+}
+
+[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-primary-2: #ffffff5f;
+    --bg-secondary: #f6f8fa;
+    --bg-tertiary: #eaeef2;
+    --bg-hover: #d0d7de;
+    --text-primary: #24292f;
+    --text-secondary: #57606a;
+    --text-secondary-2: #57606a76;
+    --text-muted: #8b949e;
+    --border-color: #d0d7de;
+    --accent: #0969da;
+    --accent-hover: #0550ae;
+    --danger: #cf222e;
+    --success: #2da44e;
+    --warning: #9a6700;
+    --sk-text: #263340;
+    --important: #423189;
+    --ad: #ff6347;
+    --code-bg: #f6f8fa;
+    --code-border: #d0d7de;
+    --table-stripe: #f6f8fa;
+    --blockquote-bg: #f6f8fa;
+    --selection-bg: #000000;
+    --selection-color: #ffffff;
+    --shadow: 0 8px 24px rgba(0,0,0,0.12);
+    
+    --hl-keyword: #cf222e;
+    --hl-string: #56976a;
+    --hl-number: #0550ae;
+    --hl-function: #8250df;
+    --hl-comment: #6e7781;
+    --hl-operator: #cf222e;
+    --hl-variable: #953800;
+    --hl-literal: #7a7a1b;
+    --hl-type: #953800;
+    --hl-builtin: #8250df;
+    --hl-decorator: #8250df;
+    --hl-operator: #cf222e;
+    
+    --weight-style: 700;
+    --outlined-style: -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000;
+}

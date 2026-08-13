@@ -17,5 +17,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     onClearAllNotifications: (callback) => {
         ipcRenderer.on('clear-all-notifications', () => callback());
         return () => ipcRenderer.removeAllListeners('clear-all-notifications');
-    }
+    },
+    resizeWindow: (width, height) => ipcRenderer.send('resize-window', width, height)
 });

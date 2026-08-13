@@ -1,72 +1,114 @@
-const { app, BrowserWindow, session, ipcMain } = require('electron');
+const { app, BrowserWindow, session, ipcMain, shell } = require('electron');
 const path = require('path');
 
+const isDev = true;
 let activeNotifications = [];
+let mainWindow = null;
+
+// Обработчик изменения размера окна
+ipcMain.on('resize-window', (event, width, height) => {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.setSize(width, height);
+  }
+});
 
 // Обработчик уведомлений из renderer
 ipcMain.on('show-notification', (event, data) => {
-    // Сохраняем уведомление в хранилище
-    const notification = {
-        id: Date.now() + Math.random(),
-        ...data,
-        timestamp: Date.now()
-    };
-    activeNotifications.push(notification);
-    
-    // Отправляем уведомление всем окнам
-    BrowserWindow.getAllWindows().forEach(window => {
-        if (!window.isDestroyed()) {
-            window.webContents.send('show-notification', notification);
-        }
-    });
+  const notification = {
+    id: Date.now() + Math.random(),
+    ...data,
+    timestamp: Date.now()
+  };
+  activeNotifications.push(notification);
+  
+  BrowserWindow.getAllWindows().forEach(window => {
+    if (!window.isDestroyed()) {
+      window.webContents.send('show-notification', notification);
+    }
+  });
 });
 
-// Метод для получения всех активных уведомлений
 ipcMain.handle('get-active-notifications', () => {
-    return activeNotifications;
+  return activeNotifications;
 });
 
-// Метод для удаления уведомления
 ipcMain.on('remove-notification', (event, notificationId) => {
-    activeNotifications = activeNotifications.filter(n => n.id !== notificationId);
-    // Уведомляем все окна об удалении
-    BrowserWindow.getAllWindows().forEach(window => {
-        if (!window.isDestroyed()) {
-            window.webContents.send('remove-notification', notificationId);
-        }
-    });
+  activeNotifications = activeNotifications.filter(n => n.id !== notificationId);
+  BrowserWindow.getAllWindows().forEach(window => {
+    if (!window.isDestroyed()) {
+      window.webContents.send('remove-notification', notificationId);
+    }
+  });
 });
 
-// Метод для очистки всех уведомлений
 ipcMain.on('clear-all-notifications', () => {
-    activeNotifications = [];
-    BrowserWindow.getAllWindows().forEach(window => {
-        if (!window.isDestroyed()) {
-            window.webContents.send('clear-all-notifications');
-        }
-    });
+  activeNotifications = [];
+  BrowserWindow.getAllWindows().forEach(window => {
+    if (!window.isDestroyed()) {
+      window.webContents.send('clear-all-notifications');
+    }
+  });
 });
 
 function createWindow() {
-  const win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 1280,
     height: 720,
+    resizable: false,
     autoHideMenuBar: true,
-    backgroundColor: '#fff',
     webPreferences: {
-        contextIsolation: true,
-        nodeIntegration: false,
-        preload: path.join(__dirname, 'preload.js')
+      contextIsolation: true,
+      nodeIntegration: false,
+      preload: path.join(__dirname, 'preload.js')
     }
-    });
-  win.loadFile('pages/home.html');
-  win.setMenu(null);
+  });
+  
+  mainWindow.loadFile('pages/home.html');
+  mainWindow.setMenu(null);
 
-  win.webContents.on('did-finish-load', () => {
-        activeNotifications.forEach(notification => {
-            win.webContents.send('show-notification', notification);
-        });
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    shell.openExternal(url);
+    return { action: 'deny' };
+  });
+
+  mainWindow.webContents.on('did-finish-load', () => {
+    activeNotifications.forEach(notification => {
+      mainWindow.webContents.send('show-notification', notification);
     });
+  });
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.key === 'F1' && isDev) {
+      event.preventDefault();
+      mainWindow.reload();
+    }
+
+    if (input.key === 'F2' && isDev) {
+      event.preventDefault();
+      mainWindow.loadFile('pages/home.html');
+    }
+
+    if (input.key === 'F12' && isDev) {
+      event.preventDefault();
+      mainWindow.webContents.openDevTools({ mode: 'detach' });
+    }
+  });
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 }
 
 app.whenReady().then(createWindow);
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
+});
