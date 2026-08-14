@@ -2,7 +2,7 @@
 
 <p align="center"><b>Catminefy</b> is desktop app for Windows and Linux which includes tools for designing and creating content for Minecraft: Java Edition</p>
 
-## Functions
+## Features
 
 ![JSoN &lt;=&gt; YAML](https://raw.githubusercontent.com/iamtowvee/catminefy/refs/heads/main/.repo/imgs/json-yaml_preview.png)
 
@@ -11,3 +11,5 @@
 ---
 
 ![Gradient Generator](https://raw.githubusercontent.com/iamtowvee/catminefy/refs/heads/main/.repo/imgs/gradient-generator_preview.png)
+
+<p align="center"><b>Gradient Generator</b> can generate gradients in 7 different formats and can include up to 10 colors</p>
