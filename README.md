@@ -12,4 +12,4 @@
 
 ![Gradient Generator](https://raw.githubusercontent.com/iamtowvee/catminefy/refs/heads/main/.repo/imgs/gradient-generator_preview.png)
 
-<p align="center"><b>Gradient Generator</b> can generate gradients in 7 different formats and can include up to 10 colors</p>
+<p align="center"><b>Gradient Generator</b> can generate gradients in <b>7</b> different formats and can include up to <b>10</b> colors</p>
