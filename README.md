@@ -4,4 +4,4 @@
 
 ## Functions
 
-![JSoN &lt;=&gt; YAML](https://raw.githubusercontent.com/iamtowvee/catminefy/main/.repo/imgs/json-yaml_preview)
+![JSoN &lt;=&gt; YAML](https://raw.githubusercontent.com/iamtowvee/catminefy/main/.repo/imgs/json-yaml_preview.png)
