@@ -5,3 +5,9 @@
 ## Functions
 
 ![JSoN &lt;=&gt; YAML](https://raw.githubusercontent.com/iamtowvee/catminefy/refs/heads/main/.repo/imgs/json-yaml_preview.png)
+
+<p align="center"><b>JSoN & YAML Converter</b> can convert YAML syntax to JSoN and vice versa</p>
+
+---
+
+![Gradient Generator](https://raw.githubusercontent.com/iamtowvee/catminefy/refs/heads/main/.repo/imgs/gradient-generator_preview.png)
