@@ -36,7 +36,7 @@
 :root[data-theme="light"] {
     --bg-primary: #e9dbc2;
     --bg-ui-primary: #d6c4a4;
-    --bg-primary: #e9dbc2d3;
+    --bg-third: rgba(0, 0, 0, 0.041);
     --accent-primary: #407397;
     --accent-secondary: #8f6b00;
     --accent-tr: #3D5A80;

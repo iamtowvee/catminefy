@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catminefy</title>
+
+        <link rel="stylesheet" href="../assets/css/general.css">
+        <link rel="stylesheet" href="../assets/css/roots.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Black+Ops+One&family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Electrolize&family=Exo:ital,wght@0,100..900;1,100..900&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Permanent+Marker&family=Shadows+Into+Light&family=Share+Tech&family=Six+Caps&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Varela+Round&display=swap" rel="stylesheet">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="sidebar">
+            <a href="home.html" class="sidebar-item">
+                <span class="icon">&#xf46d;</span>
+                <span class="label">Главная</span>
+                <span class="tooltip">Главная</span>
+            </a>
+            
+            <div class="sidebar-divider"></div>
+            
+            <a href="gradient-generator.html" class="sidebar-item">
+                <span class="icon">&#xf174a;</span>
+                <span class="label">Генератор градиентов</span>
+                <span class="tooltip">Генератор градиентов</span>
+            </a>
+            
+            <a href="text-customize.html" class="sidebar-item">
+                <span class="icon">&#xf0061;</span>
+                <span class="label">Кастомизация текста</span>
+                <span class="tooltip">Кастомизация текста</span>
+            </a>
+            
+            <div class="sidebar-divider"></div>
+            
+            <a href="settings.html" class="sidebar-item">
+                <span class="icon">&#xf423;</span>
+                <span class="label">Настройки</span>
+                <span class="tooltip">Настройки</span>
+            </a>
+            
+            <a href="#" class="sidebar-item active">
+                <span class="icon">&#xf51b;</span>
+                <span class="label">Специальные возможности</span>
+                <span class="tooltip">Специальные возможности</span>
+            </a>
+            
+            <a href="about.html" class="sidebar-item">
+                <span class="icon">&#xf420;</span>
+                <span class="label">О программе</span>
+                <span class="tooltip">О программе</span>
+            </a>
+        </div>
+
+        <div class="content">
+            <section id="top">
+                <h1>Специальные возможности</h1>
+            </section>
+
+            <section id="accessibility">
+                <h2>Специальные возможности</h2>
+                
+                <!-- ===== ФОНОВАЯ МУЗЫКА ===== -->
+                <div class="control-group">
+                    <label>Фоновая музыка:</label>
+                    <button class="btn" id="toggleMusic">Включена ✅</button>
+                    <span class="hint">(Ctrl + M)</span>
+                </div>
+                
+                <div class="control-group">
+                    <label>Композиция:</label>
+                    <select id="musicSelect">
+                        <option value="freedomly-lands">🎵 Catminefy Theme (24 сек)</option>
+                        <option value="gradient_dreams">🎵 Gradient Dreams</option>
+                        <option value="pixel_breeze">🎵 Pixel Breeze</option>
+                        <option value="none">🔇 Без музыки</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Громкость музыки:</label>
+                    <input type="range" id="musicVolume" min="0" max="100" value="30">
+                    <span id="volumeLabel">30%</span>
+                </div>
+                
+                <hr>
+                
+                <!-- ===== ДРУГИЕ ВОЗМОЖНОСТИ (потом добавишь) ===== -->
+                
+                <!-- <div class="control-group">
+                    <label>Высококонтрастный режим:</label>
+                    <button class="btn" id="toggleHighContrast">Выключен ❌</button>
+                </div> -->
+            </section>
+
+            <section>
+                <p class="by_with_love">By iamtowvee with <span style="color: var(--red);">❤</span></p>
+                <p>НЕ ЯВЛЯЕТСЯ ОФИЦИАЛЬНЫМ ПРОДУКТОМ MOJANG И НЕ ОДОБРЕН MOJANG. Catminefy не связан с Mojang или Microsoft.</p>
+            </section>
+        </div>
+
+        <script src="../assets/js/lang.js"></script>
+        <script src="../assets/js/music.js"></script>
+        <script src="../assets/js/syntax.js"></script>
+        <script src="../assets/js/copy.js"></script>
+        <script src="../assets/js/theme.js"></script>
+        <script src="../assets/js/search.js"></script>
+        <script src="../assets/js/codescroll.js"></script>
+        <script src="../assets/js/modal.js" defer></script>
+        <script src="../assets/js/notifications.js"></script>
+        <script src="../assets/js/fallback.js"></script>
+        <script src="../assets/js/gallery.js"></script>
+        <script src="../assets/js/scroll.js"></script>
+        <script src="../assets/js/loader.js"></script>
+        <script src="../assets/js/footer.js"></script>
+        <script src="../assets/js/menu.js"></script>
+    </body>
+</html>

@@ -1,123 +1,666 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Catminefy</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catminefy — Генератор градиентов</title>
 
-        <link rel="stylesheet" href="../assets/css/general.css">
-        <link rel="stylesheet" href="../assets/css/roots.css">
+    <link rel="stylesheet" href="../assets/css/general.css">
+    <link rel="stylesheet" href="../assets/css/roots.css">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Black+Ops+One&family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Electrolize&family=Exo:ital,wght@0,100..900;1,100..900&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Permanent+Marker&family=Shadows+Into+Light&family=Share+Tech&family=Six+Caps&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Black+Ops+One&family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Electrolize&family=Exo:ital,wght@0,100..900;1,100..900&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Permanent+Marker&family=Shadows+Into+Light&family=Share+Tech&family=Six+Caps&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Varela+Round&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <div class="sidebar">
+        <a href="home.html" class="sidebar-item">
+            <span class="icon">&#xf46d;</span>
+            <span class="label">Главная</span>
+            <span class="tooltip">Главная</span>
+        </a>
         
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="sidebar">
-            <a href="home.html" class="sidebar-item">
-                <span class="icon">&#xf46d;</span>
-                <span class="label">Главная</span>
-                <span class="tooltip">Главная</span>
-            </a>
+        <div class="sidebar-divider"></div>
+        
+        <a href="#" class="sidebar-item active">
+            <span class="icon">&#xf174a;</span>
+            <span class="label">Генератор градиентов</span>
+            <span class="tooltip">Генератор градиентов</span>
+        </a>
+        
+        <a href="text-customize.html" class="sidebar-item">
+            <span class="icon">&#xf0061;</span>
+            <span class="label">Кастомизация текста</span>
+            <span class="tooltip">Кастомизация текста</span>
+        </a>
+        
+        <div class="sidebar-divider"></div>
+        
+        <a href="settings.html" class="sidebar-item">
+            <span class="icon">&#xf423;</span>
+            <span class="label">Настройки</span>
+            <span class="tooltip">Настройки</span>
+        </a>
             
-            <div class="sidebar-divider"></div>
-            
-            <a href="#" class="sidebar-item active">
-                <span class="icon">&#xf174a;</span>
-                <span class="label">Генератор градиентов</span>
-                <span class="tooltip">Генератор градиентов</span>
-            </a>
-            
-            <a href="text-customize.html" class="sidebar-item">
-                <span class="icon">&#xf0061;</span>
-                <span class="label">Кастомизация текста</span>
-                <span class="tooltip">Кастомизация текста</span>
-            </a>
-            
-            <div class="sidebar-divider"></div>
-            
-            <a href="settings.html" class="sidebar-item">
-                <span class="icon">&#xf423;</span>
-                <span class="label">Настройки</span>
-                <span class="tooltip">Настройки</span>
-            </a>
-            
-            <a href="about.html" class="sidebar-item">
-                <span class="icon">&#xf420;</span>
-                <span class="label">О программе</span>
-                <span class="tooltip">О программе</span>
-            </a>
-        </div>
+        <a href="special.html" class="sidebar-item">
+            <span class="icon">&#xf51b;</span>
+            <span class="label">Специальные возможности</span>
+            <span class="tooltip">Специальные возможности</span>
+        </a>
+        
+        <a href="about.html" class="sidebar-item">
+            <span class="icon">&#xf420;</span>
+            <span class="label">О программе</span>
+            <span class="tooltip">О программе</span>
+        </a>
+    </div>
 
-        <div class="content">
-            <section id="top">
-                <h1>Генератор градиентов</h1>
-            </section>
+    <div class="content">
+        <section id="top">
+            <h1>Генератор градиентов</h1>
+        </section>
 
-            <section>
-                <!-- Текст -->
-                <div class="control-group">
-                    <label>📝 Текст:</label>
-                    <input type="text" id="gradientText" value="Catminefy" class="text-input" spellcheck="false">
-                </div>
+        <section>
+            <h4>Текст</h4>
+            <!-- Текст -->
+            <div class="control-group">
+                <input type="text" id="gradientText" placeholder="Текст (По умолчанию: Catminefy)" class="text-input" spellcheck="false">
+            </div>
 
-                <!-- Формат вывода -->
-                <div class="control-group">
-                    <label>📋 Формат вывода:</label>
-                    <select id="formatSelect">
-                        <option value="hex">&#xRRGGBB (HEX)</option>
-                        <option value="legacy-hex">§x§R§R§G§G§B§B (Legacy HEX)</option>
-                        <option value="tagged" selected>&lt;#RRGGBB&gt;текст&lt;/#RRGGBB&gt;</option>
-                        <option value="mccode">§code (стандартный)</option>
-                        <option value="ampersand">&amp;code (альтернативный)</option>
-                        <option value="minimessage">&lt;gradient&gt; (MiniMessage)</option>
-                    </select>
-                </div>
+            <hr>
 
-                <!-- Список цветов -->
-                <div class="color-list" id="colorList">
-                    <!-- Цвета будут добавляться сюда -->
-                </div>
+            <h4>Формат вывода</h4>
+            <!-- Формат вывода -->
+            <div class="control-group">
+                <select id="formatSelect">
+                    <option value="hex" selected>&#xRRGGBB (HEX)</option>
+                    <option value="legacy-hex">§x§R§R§G§G§B§B (Legacy HEX)</option>
+                    <option value="tagged">&lt;#RRGGBB&gt;текст&lt;/#RRGGBB&gt;</option>
+                    <option value="mccode">§code (стандартный)</option>
+                    <option value="ampersand">&amp;code (альтернативный)</option>
+                    <option value="minimessage">&lt;gradient&gt; (MiniMessage)</option>
+                </select>
+            </div>
 
-                <!-- Кнопки управления цветами -->
-                <div class="color-actions">
-                    <button class="btn" id="addColor"><span class="ans-icon"><span style="color: var(--green);">＋ Добавить цвет</span></span></button>
-                    <button class="btn" id="removeColor"><span class="ans-icon"><span style="color: var(--red);">✘ Удалить последний</span></span></button>
-                    <button class="btn" id="clearColors"><span class="ans-icon"><span style="color: var(--red);">☠ Очистить всё</span></span></button>
-                    <button class="btn" id="randomColors"><span class="ans-icon"><span style="color: var(--yellow);">✎ Случайные</span></span></button>
-                </div>
+            <hr>
 
-                <!-- Превью -->
-                <div class="gradient-preview">
-                    <span id="previewText">Catminefy</span>
-                </div>
+            <h4>Количество случайных цветов</h4>
+            <!-- Формат вывода -->
+            <div class="control-group">
+                <input type="text" id="minRandomColorsCount" placeholder="Минимум (По умолчанию: 2)" class="text-input" spellcheck="false">
+                <input type="text" id="maxRandomColorsCount" placeholder="Максимум (По умолчанию: 6)" class="text-input" spellcheck="false">
+            </div>
 
-                <!-- Результат -->
-                <div class="gradient-result">
-                    <h4>Готовый код:</h4>
-                    <div class="code-block" data-lang="txt">
-                        <div class="code-header">
-                            <span class="code-lang">Minecraft</span>
-                            <button class="copy-btn" data-target="mcOutput">Копировать</button>
-                        </div>
-                        <div class="code-content">
-                            <pre><code id="mcOutput">§cCatminefy</code></pre>
-                        </div>
+            <hr>
+
+            <!-- Список цветов -->
+            <div class="color-list" id="colorList"></div>
+
+            <!-- Кнопки управления цветами -->
+            <div class="color-actions">
+                <button class="btn" id="addColor"><span class="ans-icon"><span style="color: var(--green);">+ Добавить цвет</span></span></button>
+                <button class="btn" id="removeColor"><span class="ans-icon"><span style="color: var(--red);">✘ Удалить последний</span></span></button>
+                <button class="btn" id="clearColors"><span class="ans-icon"><span style="color: var(--red);">☠ Очистить всё</span></span></button>
+                <button class="btn" id="randomColors"><span class="ans-icon"><span style="color: var(--yellow);">✎ Случайные</span></span></button>
+                <button class="btn" id="customFavoriteBtn"></button>
+            </div>
+
+            <!-- Превью -->
+            <div class="gradient-preview">
+                <span id="previewText">Catminefy</span>
+            </div>
+
+            <!-- Результат -->
+            <div class="gradient-result">
+                <h4>Готовый код:</h4>
+                <div class="code-block" data-lang="txt">
+                    <div class="code-header">
+                        <span class="code-lang">Minecraft</span>
+                        <button class="copy-btn" data-target="mcOutput">Копировать</button>
+                    </div>
+                    <div class="code-content">
+                        <pre><code id="mcOutput">§cCatminefy</code></pre>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
 
-        <script src="../assets/js/gradient.js"></script>
-        <script src="../assets/js/copy.js"></script>
-        <script src="../assets/js/lang.js"></script>
-        <script src="../assets/js/theme.js"></script>
-        <script src="../assets/js/notifications.js"></script>
-        <script src="../assets/js/scroll.js"></script>
-        <script src="../assets/js/loader.js"></script>
-        <script src="../assets/js/footer.js"></script>
-        <script src="../assets/js/menu.js"></script>
-    </body>
+        <section class="favorite-section">
+            <h2>Избранное</h2>
+            <div class="favorite-list" id="favoriteList">
+                <!-- Избранные градиенты -->
+            </div>
+            <button class="btn" id="clearFavorites"><span class="ans-icon"><span style="color: var(--red);">☠ Очистить избранное</span></span></button>
+        </section>
+
+        <section class="history-section">
+            <h2 style="cursor: pointer;" title="Нажмите для просмотра всей истории">История</h2>
+            <div class="history-list" id="historyList">
+                <!-- Последние 10 записей -->
+            </div>
+            <button class="btn" id="clearHistory"><span class="ans-icon"><span style="color: var(--red);">☠ Очистить последние 10 записей</span></span></button>
+        </section>
+
+        <!-- ===== ЗАГОТОВКИ ===== -->
+        <section class="templates-section">
+            <h2>Заготовки</h2>
+
+            <div class="templates-grid" id="templatesGrid">
+                <!-- Радуга -->
+                <div class="template-block" data-template="rainbow">
+                    <div class="template-header">
+                        <span class="template-title">Радужный градиент</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="rainbow">☆</button>
+                            <button class="use-btn" data-template="rainbow">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-rainbow">Catminefy</div>
+                    <div class="template-colors" id="colors-rainbow"></div>
+                </div>
+
+                <!-- Огонь -->
+                <div class="template-block" data-template="fire">
+                    <div class="template-header">
+                        <span class="template-title">Огненный градиент</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="fire">☆</button>
+                            <button class="use-btn" data-template="fire">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-fire">Catminefy</div>
+                    <div class="template-colors" id="colors-fire"></div>
+                </div>
+
+                <!-- Лёд -->
+                <div class="template-block" data-template="ice">
+                    <div class="template-header">
+                        <span class="template-title">Ледяной градиент</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="ice">☆</button>
+                            <button class="use-btn" data-template="ice">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-ice">Catminefy</div>
+                    <div class="template-colors" id="colors-ice"></div>
+                </div>
+
+                <!-- Лёд 2 -->
+                <div class="template-block" data-template="ice_2">
+                    <div class="template-header">
+                        <span class="template-title">Ледяной градиент 2</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="ice_2">☆</button>
+                            <button class="use-btn" data-template="ice_2">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-ice_2">Catminefy</div>
+                    <div class="template-colors" id="colors-ice_2"></div>
+                </div>
+
+                <!-- Пломбир -->
+                <div class="template-block" data-template="ice_cream">
+                    <div class="template-header">
+                        <span class="template-title">Пломбир</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="ice_cream">☆</button>
+                            <button class="use-btn" data-template="ice_cream">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-ice_cream">Catminefy</div>
+                    <div class="template-colors" id="colors-ice_cream"></div>
+                </div>
+
+                <!-- Вода -->
+                <div class="template-block" data-template="water">
+                    <div class="template-header">
+                        <span class="template-title">Водный градиент</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="water">☆</button>
+                            <button class="use-btn" data-template="water">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-water">Catminefy</div>
+                    <div class="template-colors" id="colors-water"></div>
+                </div>
+
+                <!-- Ель -->
+                <div class="template-block" data-template="spruce">
+                    <div class="template-header">
+                        <span class="template-title">Ель</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="spruce">☆</button>
+                            <button class="use-btn" data-template="spruce">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-spruce">Catminefy</div>
+                    <div class="template-colors" id="colors-spruce"></div>
+                </div>
+
+                <!-- Ковер -->
+                <div class="template-block" data-template="carpet">
+                    <div class="template-header">
+                        <span class="template-title">Ковер</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="carpet">☆</button>
+                            <button class="use-btn" data-template="carpet">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-carpet">Catminefy</div>
+                    <div class="template-colors" id="colors-carpet"></div>
+                </div>
+
+                <!-- Крипер -->
+                <div class="template-block" data-template="creeper">
+                    <div class="template-header">
+                        <span class="template-title">Крипер</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="creeper">☆</button>
+                            <button class="use-btn" data-template="creeper">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-creeper">Catminefy</div>
+                    <div class="template-colors" id="colors-creeper"></div>
+                </div>
+
+                <!-- Легенда -->
+                <div class="template-block" data-template="legend">
+                    <div class="template-header">
+                        <span class="template-title">Легенда</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="legend">☆</button>
+                            <button class="use-btn" data-template="legend">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-legend">Catminefy</div>
+                    <div class="template-colors" id="colors-legend"></div>
+                </div>
+
+                <!-- Опыт -->
+                <div class="template-block" data-template="experience">
+                    <div class="template-header">
+                        <span class="template-title">Опыт</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="experience">☆</button>
+                            <button class="use-btn" data-template="experience">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-experience">Catminefy</div>
+                    <div class="template-colors" id="colors-experience"></div>
+                </div>
+
+                <!-- Клубный коктейль -->
+                <div class="template-block" data-template="club_cocktail">
+                    <div class="template-header">
+                        <span class="template-title">Клубный коктейль</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="club_cocktail">☆</button>
+                            <button class="use-btn" data-template="club_cocktail">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-club_cocktail">Catminefy</div>
+                    <div class="template-colors" id="colors-club_cocktail"></div>
+                </div>
+
+                <!-- Красная икра -->
+                <div class="template-block" data-template="red_caviar">
+                    <div class="template-header">
+                        <span class="template-title">Красная икра</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="red_caviar">☆</button>
+                            <button class="use-btn" data-template="red_caviar">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-red_caviar">Catminefy</div>
+                    <div class="template-colors" id="colors-red_caviar"></div>
+                </div>
+
+                <!-- Красный бархат -->
+                <div class="template-block" data-template="red_velvet">
+                    <div class="template-header">
+                        <span class="template-title">Красный бархат</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="red_velvet">☆</button>
+                            <button class="use-btn" data-template="red_velvet">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-red_velvet">Catminefy</div>
+                    <div class="template-colors" id="colors-red_velvet"></div>
+                </div>
+
+                <!-- Тропический пляж -->
+                <div class="template-block" data-template="tropical_beach">
+                    <div class="template-header">
+                        <span class="template-title">Тропический пляж</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="tropical_beach">☆</button>
+                            <button class="use-btn" data-template="tropical_beach">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-tropical_beach">Catminefy</div>
+                    <div class="template-colors" id="colors-tropical_beach"></div>
+                </div>
+
+                <!-- minecraft:the_end -->
+                <div class="template-block" data-template="minecraft_the_end">
+                    <div class="template-header">
+                        <span class="template-title">minecraft:the_end</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="minecraft_the_end">☆</button>
+                            <button class="use-btn" data-template="minecraft_the_end">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-minecraft_the_end">Catminefy</div>
+                    <div class="template-colors" id="colors-minecraft_the_end"></div>
+                </div>
+
+                <!-- Пастельный десерт -->
+                <div class="template-block" data-template="pastel_dessert">
+                    <div class="template-header">
+                        <span class="template-title">Пастельный десерт</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="pastel_dessert">☆</button>
+                            <button class="use-btn" data-template="pastel_dessert">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-pastel_dessert">Catminefy</div>
+                    <div class="template-colors" id="colors-pastel_dessert"></div>
+                </div>
+
+                <!-- Волшебная палочка -->
+                <div class="template-block" data-template="magic_stick">
+                    <div class="template-header">
+                        <span class="template-title">Волшебная палочка</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="magic_stick">☆</button>
+                            <button class="use-btn" data-template="magic_stick">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-magic_stick">Catminefy</div>
+                    <div class="template-colors" id="colors-magic_stick"></div>
+                </div>
+
+                <!-- Не забывайте поливать -->
+                <div class="template-block" data-template="dont_forget_to_water">
+                    <div class="template-header">
+                        <span class="template-title">Не забывайте поливать</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="dont_forget_to_water">☆</button>
+                            <button class="use-btn" data-template="dont_forget_to_water">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-dont_forget_to_water">Catminefy</div>
+                    <div class="template-colors" id="colors-dont_forget_to_water"></div>
+                </div>
+
+                <!-- Тут могло быть ваше название -->
+                <div class="template-block" data-template="your_name_could_be_here">
+                    <div class="template-header">
+                        <span class="template-title">Тут могло быть ваше название</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="your_name_could_be_here">☆</button>
+                            <button class="use-btn" data-template="your_name_could_be_here">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-your_name_could_be_here">Catminefy</div>
+                    <div class="template-colors" id="colors-your_name_could_be_here"></div>
+                </div>
+
+                <!-- Оливки -->
+                <div class="template-block" data-template="olives">
+                    <div class="template-header">
+                        <span class="template-title">Оливки</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="olives">☆</button>
+                            <button class="use-btn" data-template="olives">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-olives">Catminefy</div>
+                    <div class="template-colors" id="colors-olives"></div>
+                </div>
+
+                <!-- Райский мед -->
+                <div class="template-block" data-template="bjjjjjj">
+                    <div class="template-header">
+                        <span class="template-title">Райский мед</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="bjjjjjj">☆</button>
+                            <button class="use-btn" data-template="bjjjjjj">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-bjjjjjj">Catminefy</div>
+                    <div class="template-colors" id="colors-bjjjjjj"></div>
+                </div>
+
+                <!-- Бриз -->
+                <div class="template-block" data-template="breeze">
+                    <div class="template-header">
+                        <span class="template-title">Бриз</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="breeze">☆</button>
+                            <button class="use-btn" data-template="breeze">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-breeze">Catminefy</div>
+                    <div class="template-colors" id="colors-breeze"></div>
+                </div>
+
+                <!-- Магия эфира 4-х стихий -->
+                <div class="template-block" data-template="efir_lol">
+                    <div class="template-header">
+                        <span class="template-title">Магия эфира 4-х стихий</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="efir_lol">☆</button>
+                            <button class="use-btn" data-template="efir_lol">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-efir_lol">Catminefy</div>
+                    <div class="template-colors" id="colors-efir_lol"></div>
+                </div>
+
+                <!-- Монохромность -->
+                <div class="template-block" data-template="monochrome">
+                    <div class="template-header">
+                        <span class="template-title">Монохромность</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="monochrome">☆</button>
+                            <button class="use-btn" data-template="monochrome">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-monochrome">Catminefy</div>
+                    <div class="template-colors" id="colors-monochrome"></div>
+                </div>
+
+                <!-- Глиняный горшочек -->
+                <div class="template-block" data-template="clay_pot">
+                    <div class="template-header">
+                        <span class="template-title">Глиняный горшочек</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="clay_pot">☆</button>
+                            <button class="use-btn" data-template="clay_pot">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-clay_pot">Catminefy</div>
+                    <div class="template-colors" id="colors-clay_pot"></div>
+                </div>
+
+                <!-- Матрица -->
+                <div class="template-block" data-template="matrix">
+                    <div class="template-header">
+                        <span class="template-title">Матрица</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="matrix">☆</button>
+                            <button class="use-btn" data-template="matrix">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-matrix">Catminefy</div>
+                    <div class="template-colors" id="colors-matrix"></div>
+                </div>
+
+                <!-- Google Chrome -->
+                <div class="template-block" data-template="chrome">
+                    <div class="template-header">
+                        <span class="template-title">Google Chrome</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="chrome">☆</button>
+                            <button class="use-btn" data-template="chrome">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-chrome">Catminefy</div>
+                    <div class="template-colors" id="colors-chrome"></div>
+                </div>
+
+                <!-- Сакура -->
+                <div class="template-block" data-template="sakura">
+                    <div class="template-header">
+                        <span class="template-title">Сакура</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="sakura">☆</button>
+                            <button class="use-btn" data-template="sakura">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-sakura">Catminefy</div>
+                    <div class="template-colors" id="colors-sakura"></div>
+                </div>
+
+                <!-- Ягодный куст -->
+                <div class="template-block" data-template="berry_bush">
+                    <div class="template-header">
+                        <span class="template-title">Ягодный куст</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="berry_bush">☆</button>
+                            <button class="use-btn" data-template="berry_bush">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-berry_bush">Catminefy</div>
+                    <div class="template-colors" id="colors-berry_bush"></div>
+                </div>
+
+                <!-- 5 минут полет отличный -->
+                <div class="template-block" data-template="i_believe_i_can_fly">
+                    <div class="template-header">
+                        <span class="template-title">5 минут полет отличный</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="i_believe_i_can_fly">☆</button>
+                            <button class="use-btn" data-template="i_believe_i_can_fly">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-i_believe_i_can_fly">Catminefy</div>
+                    <div class="template-colors" id="colors-i_believe_i_can_fly"></div>
+                </div>
+
+                <!-- Конец -->
+                <div class="template-block" data-template="the_end">
+                    <div class="template-header">
+                        <span class="template-title">Конец</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="the_end">☆</button>
+                            <button class="use-btn" data-template="the_end">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-the_end">Catminefy</div>
+                    <div class="template-colors" id="colors-the_end"></div>
+                </div>
+
+                <!-- Де ля Франце -->
+                <div class="template-block" data-template="de_la_france">
+                    <div class="template-header">
+                        <span class="template-title">Де ля Франце</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="de_la_france">☆</button>
+                            <button class="use-btn" data-template="de_la_france">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-de_la_france">Catminefy</div>
+                    <div class="template-colors" id="colors-de_la_france"></div>
+                </div>
+
+                <!-- Итальянский монстр -->
+                <div class="template-block" data-template="italian_monster">
+                    <div class="template-header">
+                        <span class="template-title">Итальянский монстр</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="italian_monster">☆</button>
+                            <button class="use-btn" data-template="italian_monster">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-italian_monster">Catminefy</div>
+                    <div class="template-colors" id="colors-italian_monster"></div>
+                </div>
+
+                <!-- Киберпанк -->
+                <div class="template-block" data-template="cyber">
+                    <div class="template-header">
+                        <span class="template-title">Киберпанк</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="cyber">☆</button>
+                            <button class="use-btn" data-template="cyber">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-cyber">Catminefy</div>
+                    <div class="template-colors" id="colors-cyber"></div>
+                </div>
+
+                <!-- Закат -->
+                <div class="template-block" data-template="sunset">
+                    <div class="template-header">
+                        <span class="template-title">Закатный градиент</span>
+                        <div class="template-actions">
+                            <button class="favorite-btn" data-template="sunset">☆</button>
+                            <button class="use-btn" data-template="sunset">Использовать</button>
+                        </div>
+                    </div>
+                    <div class="template-preview" id="preview-sunset">Catminefy</div>
+                    <div class="template-colors" id="colors-sunset"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО ДЛЯ ВСЕЙ ИСТОРИИ ===== -->
+    <div class="modal" id="fullHistoryModal">
+        <div class="modal-content modal-wide">
+            <span class="modal-close" id="closeFullHistoryModal">✘</span>
+            <h3>Вся история</h3>
+            <div id="fullHistoryList" style="max-height: 60vh; overflow-y: auto; margin-top: 1rem;">
+                <!-- Сюда рендерится вся история -->
+            </div>
+            <button class="btn" id="clearFullHistoryBtn" style="margin-top: 0.5rem; color: var(--red); border-color: var(--red);">
+                <span class="ans-icon"><span style="color: var(--red);">☠ Очистить всю историю</span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== КАСТОМНОЕ ВСПЛЫВАЮЩЕЕ ОКНО ===== -->
+    <div class="custom-modal" id="customModal">
+        <div class="custom-modal-overlay"></div>
+        <div class="custom-modal-content">
+            <div class="custom-modal-header">
+                <span class="custom-modal-title" id="customModalTitle">Подтверждение</span>
+                <button class="custom-modal-close" id="customModalClose">✘</button>
+            </div>
+            <div class="custom-modal-body" id="customModalBody">
+                Вы уверены?
+            </div>
+            <div class="custom-modal-footer" id="customModalFooter">
+                <button class="btn custom-modal-btn" id="customModalCancel">Отмена</button>
+                <button class="btn custom-modal-btn custom-modal-confirm" id="customModalConfirm">Ок</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/gradient.js"></script>
+    <script src="../assets/js/music.js"></script>
+    <script src="../assets/js/copy.js"></script>
+    <script src="../assets/js/cmodal.js"></script>
+    <script src="../assets/js/lang.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/notifications.js"></script>
+    <script src="../assets/js/scroll.js"></script>
+    <script src="../assets/js/loader.js"></script>
+    <script src="../assets/js/footer.js"></script>
+    <script src="../assets/js/menu.js"></script>
+</body>
 </html>
