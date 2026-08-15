@@ -25,3 +25,9 @@
 ![Customized Text](https://raw.githubusercontent.com/iamtowvee/catminefy/refs/heads/main/.repo/imgs/custom-text_preview.png)
 
 <p align="center"><b>Customize Your Text (CYT, Cyt Editor)</b> is a built-in text editor with extensive functionality for text formatting: text formatting, coloring (including HEX and RGB colors), emoji (there is a special menu, emoji are displayed correctly even in Minecraft without modifications)</p>
+
+---
+
+![pack.mcmeta Generator](https://raw.githubusercontent.com/iamtowvee/catminefy/refs/heads/main/.repo/imgs/pack-mcmeta_preview.png)
+
+<p align="center"><b>Customize Your Text (CYT, Cyt Editor)</b> is a built-in text editor with extensive functionality for text formatting: text formatting, coloring (including HEX and RGB colors), emoji (there is a special menu, emoji are displayed correctly even in Minecraft without modifications)</p>
