@@ -28,6 +28,6 @@
 
 ---
 
-![pack.mcmeta Generator](https://raw.githubusercontent.com/iamtowvee/catminefy/refs/heads/main/.repo/imgs/pack-mcmeta_preview.png)
+![pack.mcmeta Generator](https://raw.githubusercontent.com/iamtowvee/catminefy/refs/heads/main/.repo/imgs/pack-mcmeta_preview.png?v=0)
 
-<p align="center"><b>Customize Your Text (CYT, Cyt Editor)</b> is a built-in text editor with extensive functionality for text formatting: text formatting, coloring (including HEX and RGB colors), emoji (there is a special menu, emoji are displayed correctly even in Minecraft without modifications)</p>
+<p align="center"><b>PMM Generator</b> can create pack.mcmeta files according to your requirements: your version, your description, and even gradients!</p>
