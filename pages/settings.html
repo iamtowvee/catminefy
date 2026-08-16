@@ -18,133 +18,143 @@
         <div class="sidebar">
             <a href="home.html" class="sidebar-item">
                 <span class="icon">&#xf46d;</span>
-                <span class="label">Главная</span>
-                <span class="tooltip">Главная</span>
+                <span class="label" data-translate="tabs.home">Главная</span>
+                <span class="tooltip" data-translate="tabs.home">Главная</span>
             </a>
             
             <div class="sidebar-divider"></div>
             
             <a href="gradient-generator.html" class="sidebar-item">
                 <span class="icon">&#xf174a;</span>
-                <span class="label">Генератор градиентов</span>
-                <span class="tooltip">Генератор градиентов</span>
+                <span class="label" data-translate="tabs.gradient_generator">Генератор градиентов</span>
+                <span class="tooltip" data-translate="tabs.gradient_generator">Генератор градиентов</span>
             </a>
             
             <a href="text-customize.html" class="sidebar-item">
                 <span class="icon">&#xf0061;</span>
-                <span class="label">Кастомизация текста</span>
-                <span class="tooltip">Кастомизация текста</span>
+                <span class="label" data-translate="tabs.customize_text">Кастомизация текста</span>
+                <span class="tooltip" data-translate="tabs.customize_text">Кастомизация текста</span>
             </a>
             
             <div class="sidebar-divider"></div>
             
             <a href="#" class="sidebar-item active">
                 <span class="icon">&#xf423;</span>
-                <span class="label">Настройки</span>
-                <span class="tooltip">Настройки</span>
+                <span class="label" data-translate="tabs.settings">Настройки</span>
+                <span class="tooltip" data-translate="tabs.settings">Настройки</span>
             </a>
             
             <a href="special.html" class="sidebar-item">
                 <span class="icon">&#xf51b;</span>
-                <span class="label">Специальные возможности</span>
-                <span class="tooltip">Специальные возможности</span>
+                <span class="label" data-translate="tabs.accessbility">Специальные возможности</span>
+                <span class="tooltip" data-translate="tabs.accessbility">Специальные возможности</span>
             </a>
             
             <a href="about.html" class="sidebar-item">
                 <span class="icon">&#xf420;</span>
-                <span class="label">О программе</span>
-                <span class="tooltip">О программе</span>
+                <span class="label" data-translate="tabs.about">О программе</span>
+                <span class="tooltip" data-translate="tabs.about">О программе</span>
             </a>
         </div>
 
         <div class="content">
             <section id="top">
-                <h1>Настройки</h1>
+                <h1 data-translate="app.settings.title">Настройки</h1>
             </section>
 
+            <!-- ===== ТЕМА ===== -->
             <section>
-                <h2>Тема</h2>
-                <p>Текущая тема: <span id="curTheme"></span></p>
+                <h2 data-translate="app.settings.content.subtitles.theme">Тема</h2>
+                <p><span data-translate="app.settings.content.themes.current_theme"></span> <span id="curTheme"></span></p>
                 <br>
                 <br>
-                <button class="btn toTheme" data-tthm="light">Светлая тема</button>
-                <button class="btn toTheme" data-tthm="dark">Темная тема</button>
+                <button class="btn toTheme" data-tthm="light" data-translate="app.settings.content.themes.light">Светлая тема</button>
+                <button class="btn toTheme" data-tthm="dark" data-translate="app.settings.content.themes.dark">Темная тема</button>
             </section>
 
+            <!-- ===== ЯЗЫК ===== -->
             <section>
-                <h2>Язык</h2>
-                <p>Текущий язык: <span id="curLang"></span></p>
+                <h2 data-translate="app.settings.content.subtitles.lang">Язык</h2>
+                <p><span data-translate="app.settings.content.langs.current_lang"></span> <span id="curLang"></span></p>
                 <br>
                 <br>
-                <button class="btn toLang" data-lnga="en_US">English</button>
-                <button class="btn toLang" data-lnga="ru_RU">Russian</button>
+                <button class="btn toLang" data-lnga="en_US" data-translate="app.settings.content.langs.en_US">English</button>
+                <button class="btn toLang" data-lnga="ru_RU" data-translate="app.settings.content.langs.ru_RU">Русский язык</button>
             </section>
 
+            <!-- ===== УВЕДОМЛЕНИЯ ===== -->
             <section>
-                <h2>Уведомления</h2>
-                <p>Показывать информационные уведомления: <span id="isNotifs"></span></p>
+                <h2 data-translate="app.settings.content.subtitles.notifications">Уведомления</h2>
+                <p><span data-translate="app.settings.content.notifications.info">Показывать информационные уведомления:</span> <span id="isNotifs"></span></p>
                 <br>
                 <br>
-                <button class="btn toNotifs" data-notifs="true">Включить</button>
-                <button class="btn toNotifs" data-notifs="false">Выключить</button>
+                <button class="btn toNotifs" data-notifs="true" data-translate="app.settings.content.buttons.enable">Включить</button>
+                <button class="btn toNotifs" data-notifs="false" data-translate="app.settings.content.buttons.disable">Выключить</button>
                 <br>
                 <br>
-                <p>Показывать предупреждения: <span id="isWarns"></span></p>
+                <p><span data-translate="app.settings.content.notifications.warn">Показывать предупреждения:</span> <span id="isWarns"></span></p>
                 <br>
                 <br>
-                <button class="btn toNotifs" data-warns="true">Включить</button>
-                <button class="btn toNotifs" data-warns="false">Выключить</button>
+                <button class="btn toNotifs" data-warns="true" data-translate="app.settings.content.buttons.enable">Включить</button>
+                <button class="btn toNotifs" data-warns="false" data-translate="app.settings.content.buttons.disable">Выключить</button>
                 <br>
                 <br>
-                <p>Показывать ошибки: <span id="isErrors"></span></p>
+                <p><span data-translate="app.settings.content.notifications.error">Показывать ошибки:</span> <span id="isErrors"></span></p>
                 <br>
                 <br>
-                <button class="btn toNotifs" data-errors="true">Включить</button>
-                <button class="btn toNotifs" data-errors="false">Выключить</button>
+                <button class="btn toNotifs" data-errors="true" data-translate="app.settings.content.buttons.enable">Включить</button>
+                <button class="btn toNotifs" data-errors="false" data-translate="app.settings.content.buttons.disable">Выключить</button>
                 <br>
                 <br>
-                <p>Показывать уведомления об успехе: <span id="isSuccesses"></span></p>
+                <p><span data-translate="app.settings.content.notifications.success">Показывать уведомления об успехе:</span> <span id="isSuccesses"></span></p>
                 <br>
                 <br>
-                <button class="btn toNotifs" data-successes="true">Включить</button>
-                <button class="btn toNotifs" data-successes="false">Выключить</button>
+                <button class="btn toNotifs" data-successes="true" data-translate="app.settings.content.buttons.enable">Включить</button>
+                <button class="btn toNotifs" data-successes="false" data-translate="app.settings.content.buttons.disable">Выключить</button>
                 <br>
                 <br>
                 <br>
-                <button class="btn toNotifs" data-notifs="true" data-warns="true" data-errors="true" data-successes="true">Включить все</button>
-                <button class="btn toNotifs" data-notifs="false" data-warns="false" data-errors="false" data-successes="false">Выключить все</button>
+                <button class="btn toNotifs" data-notifs="true" data-warns="true" data-errors="true" data-successes="true" data-translate="app.settings.content.buttons.enable_all">Включить все</button>
+                <button class="btn toNotifs" data-notifs="false" data-warns="false" data-errors="false" data-successes="false" data-translate="app.settings.content.buttons.disable_all">Выключить все</button>
             </section>
 
+            <!-- ===== АВТОМАТИЧЕСКИЕ ОБНОВЛЕНИЯ ===== -->
             <section>
-                <h2>Автоматические обновления</h2>
-                <p>Текущая версия: <span id="curVersion"></span></p>
+                <h2 data-translate="app.settings.content.subtitles.auto_updates">Автоматические обновления</h2>
+                <p data-translate="app.settings.content.auto_updates.current_version">Текущая версия: <span id="curVersion">1.0.0</span></p>
                 <blockquote id="note-updates" class="note tip">
-                    <strong><span class="ans-icon"><span style="color: var(--green);">✔ Все в порядке</span></span></strong>
-                    <p>Обновлений не требуется. У вас последняя версия</p>
+                    <strong><span class="ans-icon"><span style="color: var(--green);">✔</span> <span data-translate="app.settings.content.auto_updates.states.latest.title">Все в порядке</span></span></strong>
+                    <p data-translate="app.settings.content.auto_updates.states.latest.description">Обновлений не требуется. У вас последняя версия</p>
                 </blockquote>
                 <br>
                 <br>
-                <button class="btn">Включить</button>
-                <button class="btn">Выключить</button>
+                <button class="btn" data-translate="app.settings.content.buttons.enable">Включить</button>
+                <button class="btn" data-translate="app.settings.content.buttons.disable">Выключить</button>
             </section>
 
+            <!-- ===== КЭШ ПРИЛОЖЕНИЯ ===== -->
             <section>
-                <h2>Кэш приложения</h2>
-                <p>Размер кэша: <span id="cache-size">Загрузка...</span></p>
+                <h2 data-translate="app.settings.content.subtitles.app_cache">Кэш приложения</h2>
+                <p><span data-translate="app.settings.content.app_cache.cache_size">Размер кэша: </span><span id="cache-size">Загрузка...</span></p>
                 <br>
                 <br>
-                <button class="btn" id="clear-cache-btn">Очистить кэш</button>
-                <button class="btn" onclick="location.reload();">Обновить окно</button>
+                <button class="btn" id="clear-cache-btn" data-translate="app.settings.content.buttons.clear_cache">Очистить кэш</button>
+                <button class="btn" onclick="location.reload();" data-translate="app.settings.content.buttons.update_window">Обновить окно</button>
             </section>
 
+            <!-- ===== FOOTER ===== -->
             <section>
-                <p>НЕ ЯВЛЯЕТСЯ ОФИЦИАЛЬНЫМ ПРОДУКТОМ MOJANG И НЕ ОДОБРЕН MOJANG. Catminefy не связан с Mojang или Microsoft.</p>
+                <p data-translate="general.footer.spoiler">НЕ ЯВЛЯЕТСЯ ОФИЦИАЛЬНЫМ ПРОДУКТОМ MOJANG И НЕ ОДОБРЕН MOJANG. Catminefy не связан с Mojang или Microsoft.</p>
             </section>
         </div>
 
+        <!-- ===== ПОДКЛЮЧЕНИЕ СКРИПТОВ ===== -->
+        <script src="../assets/js/i18n.js"></script>
+        <script src="../assets/js/i18n.js"></script>
         <script src="../assets/js/lang.js"></script>
-        <script src="../assets/js/music.js"></script>
         <script src="../assets/js/theme.js"></script>
+        <script src="../assets/js/settings.js"></script>
+        <script src="../assets/js/music.js"></script>
         <script src="../assets/js/search.js"></script>
         <script src="../assets/js/modal.js" defer></script>
         <script src="../assets/js/notifications.js"></script>

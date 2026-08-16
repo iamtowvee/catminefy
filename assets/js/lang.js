@@ -1,24 +1,5 @@
 // lang.js
 document.addEventListener('DOMContentLoaded', function() {
-    const langs = {
-        ru_RU: {
-            ru_RU: "Русский",
-            en_US: "Английский",
-            notifications: {
-                title: "Смена языка",
-                message: "Применён язык: Русский"
-            }
-        },
-        en_US: {
-            ru_RU: "Russian",
-            en_US: "English",
-            notifications: {
-                title: "Language changed",
-                message: "Applied language: English"
-            }
-        }
-    };
-    
     const langButtons = document.querySelectorAll('.toLang');
     const curt = document.getElementById('curLang');
     
@@ -32,28 +13,31 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
-    let curLang = localStorage.getItem('lang') || 'en_US';
+    let curLang = localStorage.getItem('lang') || 'ru_RU';
     localStorage.setItem('lang', curLang);
     
     updateActiveButton(curLang, langButtons);
-    updateCurrentLanguageDisplay(curLang, langs, curt);
+    updateCurrentLanguageDisplay(curLang, curt);
     
     langButtons.forEach(button => {
         button.addEventListener('click', function() {
             let newLang = this.dataset.lnga;
             
-            if (!langs[newLang]) {
+            if (!newLang) {
                 console.error('Неправильный язык:', newLang);
                 return;
             }
             
             localStorage.setItem('lang', newLang);
             
-            // ✅ Уведомление на выбранном языке
-            const notif = langs[newLang].notifications;
-            window.notifications.info(notif.title, notif.message);
+            // Уведомление через i18n
+            if (window.i18n) {
+                window.i18n.setLanguage(newLang);
+                const langName = newLang === 'ru_RU' ? 'Русский' : 'English';
+                window.notifications.info('Смена языка', `Применён язык: ${langName}`);
+            }
             
-            updateCurrentLanguageDisplay(newLang, langs, curt);
+            updateCurrentLanguageDisplay(newLang, curt);
             updateActiveButton(newLang, langButtons);
         });
     });
@@ -69,17 +53,10 @@ function updateActiveButton(lang, buttons) {
     });
 }
 
-function updateCurrentLanguageDisplay(lang, langs, element) {
-    if (!langs[lang]) {
-        console.error('Язык не найден:', lang);
-        element.textContent = 'Unknown';
-        return;
-    }
-    
-    if (langs[lang] && langs[lang][lang]) {
-        element.textContent = langs[lang][lang];
-    } else {
-        console.warn('Язык не найден:', lang);
-        element.textContent = 'Unknown';
-    }
+function updateCurrentLanguageDisplay(lang, element) {
+    const langNames = {
+        'ru_RU': 'Русский',
+        'en_US': 'English'
+    };
+    element.textContent = langNames[lang] || lang;
 }

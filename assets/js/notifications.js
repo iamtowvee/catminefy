@@ -8,25 +8,21 @@ class NotificationSystem {
         this.init();
     }
 
-    // 👇 НОВЫЙ МЕТОД: проверяет, включен ли тип уведомления
     isTypeEnabled(type) {
         try {
             const saved = localStorage.getItem('notificationSettings');
-            if (!saved) return true; // Если настроек нет — показываем всё
-            
+            if (!saved) return true;
             const settings = JSON.parse(saved);
-            
             const typeMap = {
                 'info': 'notifs',
                 'warning': 'warns',
                 'error': 'errors',
                 'success': 'successes'
             };
-            
             const key = typeMap[type] || 'notifs';
             return settings[key] !== undefined ? settings[key] : true;
         } catch (e) {
-            return true; // В случае ошибки — показываем
+            return true;
         }
     }
 
@@ -89,7 +85,6 @@ class NotificationSystem {
     }
 
     showFromIPC(data) {
-        // 👇 ПРОВЕРКА: если тип уведомления выключен — не показываем
         if (!this.isTypeEnabled(data.type)) {
             console.log(`Уведомление типа "${data.type}" скрыто (выключено в настройках)`);
             return;
@@ -148,7 +143,6 @@ class NotificationSystem {
     }
 
     show(title, message, type = 'info', duration = this.defaultDuration, closable = true) {
-        // 👇 ПРОВЕРКА: если тип уведомления выключен — не показываем
         if (!this.isTypeEnabled(type)) {
             console.log(`Уведомление типа "${type}" скрыто (выключено в настройках)`);
             return null;
@@ -219,7 +213,6 @@ class NotificationSystem {
         return div.innerHTML;
     }
 
-    // Удобные методы
     info(title, message, duration) {
         return this.show(title, message, 'info', duration);
     }
@@ -250,25 +243,24 @@ class NotificationSystem {
     }
 }
 
+// ============================
+// НАСТРОЙКИ УВЕДОМЛЕНИЙ — ВСЁ ЧЕРЕЗ i18n
+// ============================
+
 document.addEventListener('DOMContentLoaded', function() {
-    // ========== НАСТРОЙКИ УВЕДОМЛЕНИЙ ==========
-    
-    // Загружаем настройки из localStorage или устанавливаем по умолчанию
     const defaultSettings = {
-        notifs: true,    // Информационные уведомления
-        warns: true,     // Предупреждения
-        errors: true,    // Ошибки
-        successes: true  // Успехи
+        notifs: true,
+        warns: true,
+        errors: true,
+        successes: true
     };
     
     let settings = {};
     
-    // Загружаем сохраненные настройки
     try {
         const saved = localStorage.getItem('notificationSettings');
         if (saved) {
             settings = JSON.parse(saved);
-            // Проверяем, что все поля есть
             for (const key in defaultSettings) {
                 if (!(key in settings)) {
                     settings[key] = defaultSettings[key];
@@ -280,97 +272,88 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (e) {
         settings = { ...defaultSettings };
     }
+
+    function t(key, fallback) {
+        if (window.i18n) {
+            const result = window.i18n.t(key);
+            if (result && result !== key) return result;
+        }
+        return fallback || key;
+    }
     
-    // Сохраняем настройки в localStorage
     function saveSettings() {
         localStorage.setItem('notificationSettings', JSON.stringify(settings));
         updateDisplay();
     }
     
-    // Обновляем отображение текущих настроек
     function updateDisplay() {
-        // Обновляем текстовые индикаторы
         const isNotifs = document.getElementById('isNotifs');
         const isWarns = document.getElementById('isWarns');
         const isErrors = document.getElementById('isErrors');
         const isSuccesses = document.getElementById('isSuccesses');
         
-        if (isNotifs) isNotifs.innerHTML = settings.notifs ? '<span class="ans-icon"><span style="color: var(--green);">✔ Да</span></span>' : '<span class="ans-icon"><span style="color: var(--red);">✘ Нет</span></span>';
-        if (isWarns) isWarns.innerHTML = settings.warns ? '<span class="ans-icon"><span style="color: var(--green);">✔ Да</span></span>' : '<span class="ans-icon"><span style="color: var(--red);">✘ Нет</span></span>';
-        if (isErrors) isErrors.innerHTML = settings.errors ? '<span class="ans-icon"><span style="color: var(--green);">✔ Да</span></span>' : '<span class="ans-icon"><span style="color: var(--red);">✘ Нет</span></span>';
-        if (isSuccesses) isSuccesses.innerHTML = settings.successes ? '<span class="ans-icon"><span style="color: var(--green);">✔ Да</span></span>' : '<span class="ans-icon"><span style="color: var(--red);">✘ Нет</span></span>';
+        const yes = t('app.settings.content.notifications.values.yes', '✔ Да');
+        const no = t('app.settings.content.notifications.values.no', '✘ Нет');
+        
+        if (isNotifs) isNotifs.innerHTML = settings.notifs ? `<span class="ans-icon"><span style="color: var(--green);">${yes}</span></span>` : `<span class="ans-icon"><span style="color: var(--red);">${no}</span></span>`;
+        if (isWarns) isWarns.innerHTML = settings.warns ? `<span class="ans-icon"><span style="color: var(--green);">${yes}</span></span>` : `<span class="ans-icon"><span style="color: var(--red);">${no}</span></span>`;
+        if (isErrors) isErrors.innerHTML = settings.errors ? `<span class="ans-icon"><span style="color: var(--green);">${yes}</span></span>` : `<span class="ans-icon"><span style="color: var(--red);">${no}</span></span>`;
+        if (isSuccesses) isSuccesses.innerHTML = settings.successes ? `<span class="ans-icon"><span style="color: var(--green);">${yes}</span></span>` : `<span class="ans-icon"><span style="color: var(--red);">${no}</span></span>`;
 
-        // Обновляем активные кнопки
         document.querySelectorAll('.toNotifs').forEach(btn => {
             btn.classList.remove('active');
             
-            // Проверяем, какой тип уведомления эта кнопка контролирует
             const notifType = btn.dataset.notifs;
             const warnType = btn.dataset.warns;
             const errorType = btn.dataset.errors;
             const successType = btn.dataset.successes;
             
-            // Если кнопка управляет одним типом
             if (notifType !== undefined && warnType === undefined) {
-                if (settings.notifs === (notifType === 'true')) {
-                    btn.classList.add('active');
-                }
+                if (settings.notifs === (notifType === 'true')) btn.classList.add('active');
             }
             if (warnType !== undefined && notifType === undefined) {
-                if (settings.warns === (warnType === 'true')) {
-                    btn.classList.add('active');
-                }
+                if (settings.warns === (warnType === 'true')) btn.classList.add('active');
             }
             if (errorType !== undefined && notifType === undefined) {
-                if (settings.errors === (errorType === 'true')) {
-                    btn.classList.add('active');
-                }
+                if (settings.errors === (errorType === 'true')) btn.classList.add('active');
             }
             if (successType !== undefined && notifType === undefined) {
-                if (settings.successes === (successType === 'true')) {
-                    btn.classList.add('active');
-                }
+                if (settings.successes === (successType === 'true')) btn.classList.add('active');
             }
             
-            // Если кнопка "Включить все" или "Выключить все" (все 4 атрибута)
             if (notifType !== undefined && warnType !== undefined && errorType !== undefined && successType !== undefined) {
                 const allOn = settings.notifs && settings.warns && settings.errors && settings.successes;
                 const allOff = !settings.notifs && !settings.warns && !settings.errors && !settings.successes;
                 
-                if (notifType === 'true' && allOn) {
-                    btn.classList.add('active');
-                }
-                if (notifType === 'false' && allOff) {
-                    btn.classList.add('active');
-                }
+                if (notifType === 'true' && allOn) btn.classList.add('active');
+                if (notifType === 'false' && allOff) btn.classList.add('active');
             }
         });
     }
     
-    // Обновляем настройку
     function updateSetting(type, value) {
         settings[type] = value === 'true';
         saveSettings();
         
-        // Уведомление об изменении
         const typeNames = {
-            notifs: 'Информационные уведомления',
-            warns: 'Предупреждения',
-            errors: 'Ошибки',
-            successes: 'Уведомления об успехе'
+            notifs: t('app.settings.content.notifications.info', 'Информационные уведомления'),
+            warns: t('app.settings.content.notifications.warn', 'Предупреждения'),
+            errors: t('app.settings.content.notifications.error', 'Ошибки'),
+            successes: t('app.settings.content.notifications.success', 'Уведомления об успехе')
         };
         
-        const status = value === 'true' ? 'включены' : 'выключены';
+        const statusKey = value === 'true' ? 'enabled' : 'disabled';
+        const status = t(`app.settings.content.notifications.statuses.${statusKey}`, value === 'true' ? 'включены' : 'выключены');
+        
         if (window.notifications) {
-            window.notifications.info(
-                'Настройки уведомлений',
-                `${typeNames[type] || type} ${status}`,
-                3000
-            );
+            const title = t('app.settings.content.subtitles.notifications', 'Настройки уведомлений');
+            const message = t('app.settings.content.notifications.single_status', '{name} {status}')
+                .replace('{name}', typeNames[type] || type)
+                .replace('{status}', status);
+            window.notifications.info(title, message, 3000);
         }
     }
     
-    // Обработчики кнопок
     document.querySelectorAll('.toNotifs').forEach(button => {
         button.addEventListener('click', function() {
             const notifType = this.dataset.notifs;
@@ -378,7 +361,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const errorType = this.dataset.errors;
             const successType = this.dataset.successes;
             
-            // Если у кнопки есть все 4 атрибута — это "Включить все" или "Выключить все"
             if (notifType !== undefined && warnType !== undefined && errorType !== undefined && successType !== undefined) {
                 const value = notifType === 'true';
                 settings.notifs = value;
@@ -387,36 +369,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 settings.successes = value;
                 saveSettings();
                 
-                const status = value ? 'включены' : 'выключены';
                 if (window.notifications) {
-                    window.notifications.info(
-                        'Настройки уведомлений',
-                        `Все уведомления ${status}`,
-                        3000
-                    );
+                    const title = t('app.settings.content.subtitles.notifications', 'Настройки уведомлений');
+                    const statusKey = value ? 'enabled' : 'disabled';
+                    const status = t(`app.settings.content.notifications.statuses.${statusKey}`, value ? 'включены' : 'выключены');
+                    const message = t('app.settings.content.notifications.all_status', 'Все уведомления {status}').replace('{status}', status);
+                    window.notifications.info(title, message, 3000);
                 }
                 return;
             }
             
-            // Если кнопка управляет информационными уведомлениями
             if (notifType !== undefined && warnType === undefined) {
                 updateSetting('notifs', notifType);
                 return;
             }
-            
-            // Если кнопка управляет предупреждениями
             if (warnType !== undefined && notifType === undefined) {
                 updateSetting('warns', warnType);
                 return;
             }
-            
-            // Если кнопка управляет ошибками
             if (errorType !== undefined && notifType === undefined) {
                 updateSetting('errors', errorType);
                 return;
             }
-            
-            // Если кнопка управляет успехами
             if (successType !== undefined && notifType === undefined) {
                 updateSetting('successes', successType);
                 return;
@@ -424,16 +398,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Обновляем отображение при загрузке
     updateDisplay();
     
     console.log('Система уведомлений настроена:', settings);
 });
 
-// Создаем глобальный экземпляр
 window.notifications = new NotificationSystem();
 
-// Очищаем при перезагрузке страницы
 window.addEventListener('beforeunload', () => {
     if (window.notifications) {
         window.notifications.destroy();

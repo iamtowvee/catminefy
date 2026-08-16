@@ -1,0 +1,219 @@
+{
+    "tabs": {
+        "home": "Home",
+        "gradient_generator": "Gradient Generator",
+        "customize_text": "Customize Text",
+        "settings": "Settings",
+        "accessbility": "Accessibility",
+        "about": "About"
+    },
+    "app": {
+        "home": {
+            "title": "Home",
+            "sections": {
+                "tools": {
+                    "title": "Tools",
+                    "cards": {
+                        "buttons": { "go": "Go" },
+                        "gradient_generator": {
+                            "title": "Gradient Generator",
+                            "description": "Generate beautiful gradients"
+                        }
+                    }
+                }
+            }
+        },
+        "gradient_generator": {
+            "title": "Gradient Generator",
+            "sections": {
+                "generate": {
+                    "content": {
+                        "buttons": {
+                            "add_color": "+ Add Color",
+                            "delete_last": "✘ Delete Last",
+                            "clear_all": "☠ Clear All",
+                            "random_colors": "✎ Random"
+                        },
+                        "subtitles": {
+                            "text": "Text",
+                            "output_format": "Output Format",
+                            "random_colors_count": "Random Colors Count",
+                            "result": "Result:"
+                        },
+                        "placeholders": {
+                            "text_input": "Text (Default: Catminefy)",
+                            "min_colors_count": "Min (Default: 2)",
+                            "max_colors_count": "Max (Default: 6)"
+                        }
+                    }
+                },
+                "favorites": {
+                    "title": "Favorites",
+                    "content": {
+                        "buttons": { "clear_favorites": "☠ Clear Favorites" },
+                        "placeholders": { "empty_favorites": "No favorite gradients. Click ★ on a template or custom gradient." }
+                    }
+                },
+                "history": {
+                    "title": "History",
+                    "content": {
+                        "buttons": {
+                            "clear_history_full": "☠ Clear Full History",
+                            "clear_history_last_ten": "☠ Clear Last 10 Entries"
+                        },
+                        "placeholders": {
+                            "empty_history_last": "History is empty. Use gradients, they will appear here.",
+                            "empty_history_full": "History is empty"
+                        },
+                        "modal": { "title": "Full History" }
+                    }
+                },
+                "templates": {
+                    "title": "Templates",
+                    "content": {
+                        "gradients": {
+                            "rainbow": "Rainbow Gradient",
+                            "fire": "Fire Gradient",
+                            "ice": "Ice Gradient",
+                            "ice_2": "Ice Gradient 2",
+                            "ice_cream": "Ice Cream",
+                            "water": "Water Gradient",
+                            "spruce": "Spruce",
+                            "carpet": "Carpet",
+                            "creeper": "Creeper",
+                            "legend": "Legend",
+                            "experience": "Experience",
+                            "club_cocktail": "Club Cocktail",
+                            "red_caviar": "Red Caviar",
+                            "red_velvet": "Red Velvet",
+                            "tropical_beach": "Tropical Beach",
+                            "minecraft_the_end": "minecraft:the_end",
+                            "pastel_dessert": "Pastel Dessert",
+                            "magic_stick": "Magic Stick",
+                            "dont_forget_to_water": "Don't Forget to Water",
+                            "your_name_could_be_here": "Your Name Could Be Here",
+                            "olives": "Olives",
+                            "bjjjjjj": "Paradise Honey",
+                            "breeze": "Breeze",
+                            "efir_lol": "Magic of the 4 Elements",
+                            "monochrome": "Monochrome",
+                            "clay_pot": "Clay Pot",
+                            "matrix": "Matrix",
+                            "chrome": "Google Chrome",
+                            "sakura": "Sakura",
+                            "berry_bush": "Berry Bush",
+                            "i_believe_i_can_fly": "5 Minutes of Great Flight",
+                            "the_end": "The End",
+                            "de_la_france": "De la France",
+                            "italian_monster": "Italian Monster",
+                            "cyber": "Cyberpunk",
+                            "sunset": "Sunset Gradient"
+                        }
+                    }
+                }
+            }
+        },
+        "customize_text": {
+            "title": "Customize Text"
+        },
+        "settings": {
+            "title": "Settings",
+            "content": {
+                "themes": {
+                    "current_theme": "Current theme: ",
+                    "light": "Light Theme",
+                    "dark": "Dark Theme"
+                },
+                "langs": {
+                    "current_lang": "Current language: ",
+                    "ru_RU": "Russian",
+                    "en_US": "English"
+                },
+                "buttons": {
+                    "clear_cache": "Clear Cache",
+                    "update_window": "Update Window",
+                    "enable": "Enable",
+                    "disable": "Disable",
+                    "enable_all": "Enable All",
+                    "disable_all": "Disable All"
+                },
+                "notifications": {
+                    "info": "Show Info Notifications:",
+                    "warn": "Show Warnings:",
+                    "error": "Show Errors:",
+                    "success": "Show Success Notifications:",
+                    "single_status": "{name} {status}",
+                    "all_status": "All notifications {status}",
+                    "statuses": {
+                        "enabled": "enabled",
+                        "disabled": "disabled"
+                    },
+                    "values": {
+                        "yes": "✔ Yes",
+                        "no": "✘ No"
+                    }
+                },
+                "auto_updates": {
+                    "current_version": "Current version:",
+                    "states": {
+                        "latest": {
+                            "title": "✔ Up to Date",
+                            "description": "No updates needed. You have the latest version."
+                        },
+                        "not_latest": {
+                            "title": "✘ Update Available",
+                            "description": "We recommend checking the changes and updating to the latest version."
+                        }
+                    }
+                },
+                "app_cache": {
+                    "cache_size": "Cache Size: ",
+                    "cant_get_cache_size": "Error"
+                },
+                "subtitles": {
+                    "theme": "Theme",
+                    "lang": "Language",
+                    "notifications": "Notifications",
+                    "auto_updates": "Auto Updates",
+                    "app_cache": "App Cache"
+                }
+            }
+        },
+        "more_settings": {
+            "title": "Accessibility"
+        },
+        "about": {
+            "title": "About",
+            "content": {
+                "subtitles": {
+                    "thanks": {
+                        "title": "Credits",
+                        "faithful": {
+                            "description": "Maybe in the future Catminefy GUI will be originally from Faithful 32x. <a href=\"https://faithfulpack.net/\" target=\"_blank\">https://faithfulpack.net/</a>"
+                        },
+                        "nerd_fonts": {
+                            "description": "Huge thanks to <a href=\"https://www.nerdfonts.com/\" target=\"_blank\">Nerd Fonts</a> for the icons"
+                        },
+                        "moncraft": {
+                            "description": "Huge thanks to <a href=\"https://github.com/IdreesInc\" target=\"_blank\">Idrees Hassan</a> for <a href=\"https://github.com/IdreesInc/Monocraft\" target=\"_blank\">Monocraft</a>"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "general": {
+        "buttons": {
+            "use": "Use",
+            "copy": "Copy",
+            "cancel": "Cancel",
+            "ok": "OK"
+        },
+        "texts": {
+            "warn": "Warning"
+        },
+        "footer": {
+            "spoiler": "NOT AN OFFICIAL MOJANG PRODUCT AND NOT APPROVED BY MOJANG. Catminefy is not affiliated with Mojang or Microsoft."
+        }
+    }
+}

@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.notifications) {
             window.notifications.info(
                 'Музыка',
-                isMusicEnabled ? 'Фоновая музыка включена 🎵' : 'Фоновая музыка выключена 🔇'
+                isMusicEnabled ? 'Фоновая музыка включена' : 'Фоновая музыка выключена'
             );
         }
     }
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // === ОБНОВЛЕНИЕ UI ===
     function updateUI() {
         if (toggleBtn) {
-            toggleBtn.textContent = isMusicEnabled ? 'Включена ✅' : 'Выключена ❌';
+            toggleBtn.textContent = isMusicEnabled ? 'Включена ✔' : 'Выключена ✘';
         }
         
         if (selectEl) {
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         updateUI();
         
-        console.log('🎵 Музыка загружена:', {
+        console.log('Музыка загружена:', {
             enabled: isMusicEnabled,
             track: currentTrack,
             time: currentTime,

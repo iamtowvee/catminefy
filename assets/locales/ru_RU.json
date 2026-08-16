@@ -1,0 +1,219 @@
+{
+    "tabs": {
+        "home": "Главная",
+        "gradient_generator": "Генератор градиентов",
+        "customize_text": "Кастомизация текста",
+        "settings": "Настройки",
+        "accessbility": "Специальные возможности",
+        "about": "О программе"
+    },
+    "app": {
+        "home": {
+            "title": "Главная",
+            "sections": {
+                "tools": {
+                    "title": "Инструменты",
+                    "cards": {
+                        "buttons": { "go": "Перейти" },
+                        "gradient_generator": {
+                            "title": "Генератор градиентов",
+                            "description": "Генератор градиентов"
+                        }
+                    }
+                }
+            }
+        },
+        "gradient_generator": {
+            "title": "Генератор градиентов",
+            "sections": {
+                "generate": {
+                    "content": {
+                        "buttons": {
+                            "add_color": "+ Добавить цвет",
+                            "delete_last": "✘ Удалить последний",
+                            "clear_all": "☠ Очистить всё",
+                            "random_colors": "✎ Случайные"
+                        },
+                        "subtitles": {
+                            "text": "Текст",
+                            "output_format": "Формат вывода",
+                            "random_colors_count": "Количество случайных цветов",
+                            "result": "Готовый код:"
+                        },
+                        "placeholders": {
+                            "text_input": "Текст (По умолчанию: Catminefy)",
+                            "min_colors_count": "Минимум (По умолчанию: 2)",
+                            "max_colors_count": "Максимум (По умолчанию: 6)"
+                        }
+                    }
+                },
+                "favorites": {
+                    "title": "Избранное",
+                    "content": {
+                        "buttons": { "clear_favorites": "☠ Очистить избранное" },
+                        "placeholders": { "empty_favorites": "Нет избранных градиентов. Нажмите ★ у заготовки или кастомного градиента." }
+                    }
+                },
+                "history": {
+                    "title": "История",
+                    "content": {
+                        "buttons": {
+                            "clear_history_full": "☠ Очистить всю историю",
+                            "clear_history_last_ten": "☠ Очистить последние 10 записей"
+                        },
+                        "placeholders": {
+                            "empty_history_last": "История пуста. Используйте градиенты, они будут появляться здесь.",
+                            "empty_history_full": "История пуста"
+                        },
+                        "modal": { "title": "Вся история" }
+                    }
+                },
+                "templates": {
+                    "title": "Заготовки",
+                    "content": {
+                        "gradients": {
+                            "rainbow": "Радужный градиент",
+                            "fire": "Огненный градиент",
+                            "ice": "Ледяной градиент",
+                            "ice_2": "Ледяной градиент 2",
+                            "ice_cream": "Пломбир",
+                            "water": "Водный градиент",
+                            "spruce": "Ель",
+                            "carpet": "Ковер",
+                            "creeper": "Крипер",
+                            "legend": "Легенда",
+                            "experience": "Опыт",
+                            "club_cocktail": "Клубный коктейль",
+                            "red_caviar": "Красная икра",
+                            "red_velvet": "Красный бархат",
+                            "tropical_beach": "Тропический пляж",
+                            "minecraft_the_end": "minecraft:the_end",
+                            "pastel_dessert": "Пастельный десерт",
+                            "magic_stick": "Волшебная палочка",
+                            "dont_forget_to_water": "Не забывайте поливать",
+                            "your_name_could_be_here": "Тут могло быть ваше название",
+                            "olives": "Оливки",
+                            "bjjjjjj": "Райский мед",
+                            "breeze": "Бриз",
+                            "efir_lol": "Магия эфира 4-х стихий",
+                            "monochrome": "Монохромность",
+                            "clay_pot": "Глиняный горшочек",
+                            "matrix": "Матрица",
+                            "chrome": "Google Chrome",
+                            "sakura": "Сакура",
+                            "berry_bush": "Ягодный куст",
+                            "i_believe_i_can_fly": "5 минут полет отличный",
+                            "the_end": "Конец",
+                            "de_la_france": "Де ля Франце",
+                            "italian_monster": "Итальянский монстр",
+                            "cyber": "Киберпанк",
+                            "sunset": "Закатный градиент"
+                        }
+                    }
+                }
+            }
+        },
+        "customize_text": {
+            "title": "Кастомизация текста"
+        },
+        "settings": {
+            "title": "Настройки",
+            "content": {
+                "themes": {
+                    "current_theme": "Текущая тема: ",
+                    "light": "Светлая тема",
+                    "dark": "Темная тема"
+                },
+                "langs": {
+                    "current_lang": "Текущий язык: ",
+                    "ru_RU": "Русский язык",
+                    "en_US": "Английский язык"
+                },
+                "buttons": {
+                    "clear_cache": "Очистить кэш",
+                    "update_window": "Обновить окно",
+                    "enable": "Включить",
+                    "disable": "Выключить",
+                    "enable_all": "Включить все",
+                    "disable_all": "Выключить все"
+                },
+                "notifications": {
+                    "info": "Показывать информационные уведомления:",
+                    "warn": "Показывать предупреждения:",
+                    "error": "Показывать ошибки:",
+                    "success": "Показывать уведомления об успехе:",
+                    "single_status": "{name} {status}",
+                    "all_status": "Все уведомления {status}",
+                    "statuses": {
+                        "enabled": "включены",
+                        "disabled": "выключены"
+                    },
+                    "values": {
+                        "yes": "✔ Да",
+                        "no": "✘ Нет"
+                    }
+                },
+                "auto_updates": {
+                    "current_version": "Текущая версия:",
+                    "states": {
+                        "latest": {
+                            "title": "✔ Все в порядке",
+                            "description": "Обновлений не требуется. У вас последняя версия"
+                        },
+                        "not_latest": {
+                            "title": "✘ У вас не последняя версия",
+                            "description": "Рекомендуем ознакомиться с изменениями и, если захотите, обновитесь до последней версии"
+                        }
+                    }
+                },
+                "app_cache": {
+                    "cache_size": "Размер кэша: ",
+                    "cant_get_cache_size": "Ошибка"
+                },
+                "subtitles": {
+                    "theme": "Тема",
+                    "lang": "Язык",
+                    "notifications": "Уведомления",
+                    "auto_updates": "Автоматические обновления",
+                    "app_cache": "Кэш приложения"
+                }
+            }
+        },
+        "more_settings": {
+            "title": "Специальные возможности"
+        },
+        "about": {
+            "title": "О программе",
+            "content": {
+                "subtitles": {
+                    "thanks": {
+                        "title": "Благодарности",
+                        "faithful": {
+                            "description": "Может быть в будущем Catminefy GUI будет originally from Faithful 32x. <a href=\"https://faithfulpack.net/\" target=\"_blank\">https://faithfulpack.net/</a>"
+                        },
+                        "nerd_fonts": {
+                            "description": "Огромное спасибо проекту <a href=\"https://www.nerdfonts.com/\" target=\"_blank\">Nerd Fonts</a> за иконки"
+                        },
+                        "moncraft": {
+                            "description": "Огромное спасибо <a href=\"https://github.com/IdreesInc\" target=\"_blank\">Idrees Hassan</a> за <a href=\"https://github.com/IdreesInc/Monocraft\" target=\"_blank\">Monocraft</a>"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "general": {
+        "buttons": {
+            "use": "Использовать",
+            "copy": "Копировать",
+            "cancel": "Отмена",
+            "ok": "Ок"
+        },
+        "texts": {
+            "warn": "Внимание"
+        },
+        "footer": {
+            "spoiler": "НЕ ЯВЛЯЕТСЯ ОФИЦИАЛЬНЫМ ПРОДУКТОМ MOJANG И НЕ ОДОБРЕН MOJANG. Catminefy не связан с Mojang или Microsoft."
+        }
+    }
+}
