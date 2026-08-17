@@ -1,5 +1,5 @@
 // ============================
-// СИСТЕМА ПЕРЕВОДОВ (i18n) — JSON
+// СИСТЕМА ПЕРЕВОДОВ (i18n) — ПОЛНАЯ ВЕРСИЯ
 // ============================
 
 class I18n {
@@ -9,7 +9,7 @@ class I18n {
         this.translations = {};
         this.observers = [];
         this.isLoaded = false;
-        this.loadingPromise = null;
+        this.dynamicElements = []; // Массив зарегистрированных элементов
     }
 
     /**
@@ -35,21 +35,16 @@ class I18n {
     }
 
     /**
-     * Инициализация — загружаем текущий язык и fallback
+     * Инициализация
      */
     async init() {
         if (this.isLoaded) return;
 
-        // Загружаем текущий язык
         let currentData = await this.loadLocale(this.currentLang);
-        
-        // Если текущий язык не загрузился — пробуем fallback
         if (!currentData) {
             this.currentLang = this.fallbackLang;
             currentData = await this.loadLocale(this.fallbackLang);
         }
-
-        // Если и fallback не загрузился — загружаем русский как последнюю надежду
         if (!currentData) {
             this.currentLang = 'ru_RU';
             await this.loadLocale('ru_RU');
@@ -58,6 +53,11 @@ class I18n {
         this.isLoaded = true;
         this._updateAll();
         this._notifyObservers();
+
+        // 👇 КИДАЕМ СОБЫТИЕ, ЧТО I18N ГОТОВ
+        document.dispatchEvent(new CustomEvent('i18nReady', {
+            detail: { lang: this.currentLang }
+        }));
 
         console.log(`🌍 I18n инициализирован: ${this.currentLang}`);
     }
@@ -71,20 +71,14 @@ class I18n {
             return key;
         }
 
-        // Пробуем на текущем языке
         let result = this._getNestedValue(this.translations[this.currentLang], key);
-        
-        // Если нет — пробуем на fallback
         if (result === undefined || result === null) {
             result = this._getNestedValue(this.translations[this.fallbackLang], key);
         }
-        
-        // Если и там нет — возвращаем ключ
         if (result === undefined || result === null) {
             console.warn(`[i18n] Перевод не найден: ${key}`);
             return key;
         }
-        
         return result;
     }
 
@@ -110,7 +104,6 @@ class I18n {
     async setLanguage(lang) {
         if (lang === this.currentLang) return;
 
-        // Загружаем новую локаль
         const data = await this.loadLocale(lang);
         if (!data) {
             console.warn(`[i18n] Язык ${lang} не загружен, используем fallback`);
@@ -123,9 +116,8 @@ class I18n {
         this._updateAll();
         this._notifyObservers();
 
-        // Кидаем событие для других скриптов
-        document.dispatchEvent(new CustomEvent('languageChanged', { 
-            detail: { lang } 
+        document.dispatchEvent(new CustomEvent('languageChanged', {
+            detail: { lang }
         }));
 
         console.log(`🌍 Язык изменён: ${lang}`);
@@ -143,7 +135,6 @@ class I18n {
      */
     onChange(callback) {
         this.observers.push(callback);
-        // Сразу вызываем с текущим языком
         callback(this.currentLang);
     }
 
@@ -153,25 +144,78 @@ class I18n {
         }
     }
 
+    // ============================================================
+    // 👇 НОВАЯ СИСТЕМА РЕГИСТРАЦИИ ДИНАМИЧЕСКИХ ЭЛЕМЕНТОВ
+    // ============================================================
+
     /**
-     * Обновить все элементы с data-translate
+     * Зарегистрировать элемент для автоматического обновления при смене языка
+     * 
+     * @param {HTMLElement} element - DOM элемент
+     * @param {string} key - Ключ перевода (полный путь в JSON)
+     * @param {string} fallback - Текст, если перевод не найден
+     * @param {string} mode - 'textContent' (по умолчанию) или 'innerHTML'
+     */
+    register(element, key, fallback = '', mode = 'textContent') {
+        if (!element) {
+            console.warn('[i18n] Невалидный элемент для регистрации:', key);
+            return;
+        }
+
+        // Проверяем, не зарегистрирован ли уже этот элемент
+        const existing = this.dynamicElements.findIndex(e => e.element === element);
+        if (existing !== -1) {
+            this.dynamicElements[existing] = { element, key, fallback, mode };
+        } else {
+            this.dynamicElements.push({ element, key, fallback, mode });
+        }
+        this._updateElement(element, key, fallback, mode);
+    }
+
+    /**
+     * Обновить один элемент
+     */
+    _updateElement(element, key, fallback, mode) {
+        if (!element || !element.isConnected) return;
+        const translation = this.t(key);
+        const text = (translation && translation !== key) ? translation : fallback;
+        if (mode === 'innerHTML') {
+            element.innerHTML = text;
+        } else {
+            element.textContent = text;
+        }
+    }
+
+    /**
+     * Обновить все зарегистрированные элементы
+     */
+    _updateDynamicElements() {
+        for (const { element, key, fallback, mode } of this.dynamicElements) {
+            if (element && element.isConnected) {
+                this._updateElement(element, key, fallback, mode);
+            }
+        }
+    }
+
+    /**
+     * Обновить элементы с data-translate И динамические
      */
     _updateAll() {
+        // 1. data-translate элементы
         document.querySelectorAll('[data-translate]').forEach(el => {
             const key = el.getAttribute('data-translate');
             const translation = this.t(key);
-            
-            if (translation && (translation.includes('<a') || translation.includes('<span') || translation.includes('<strong'))) {
+            if (typeof translation === 'string' && (translation.includes('<a') || translation.includes('<span') || translation.includes('<strong'))) {
                 el.innerHTML = translation;
             } else {
-                el.textContent = translation || key;
+                el.textContent = (typeof translation === 'string') ? translation : key;
             }
         });
 
         document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
             const key = el.getAttribute('data-translate-placeholder');
             const translation = this.t(key);
-            if (translation) {
+            if (typeof translation === 'string' && translation) {
                 el.placeholder = translation;
             }
         });
@@ -179,7 +223,7 @@ class I18n {
         document.querySelectorAll('[data-translate-title]').forEach(el => {
             const key = el.getAttribute('data-translate-title');
             const translation = this.t(key);
-            if (translation) {
+            if (typeof translation === 'string' && translation) {
                 el.title = translation;
             }
         });
@@ -187,10 +231,13 @@ class I18n {
         document.querySelectorAll('[data-translate-value]').forEach(el => {
             const key = el.getAttribute('data-translate-value');
             const translation = this.t(key);
-            if (translation) {
+            if (typeof translation === 'string' && translation) {
                 el.value = translation;
             }
         });
+
+        // 2. Динамические элементы
+        this._updateDynamicElements();
     }
 }
 
@@ -200,7 +247,10 @@ class I18n {
 
 window.i18n = new I18n();
 
-// Автоматическая инициализация
-document.addEventListener('DOMContentLoaded', () => {
-    window.i18n.init();
+// Инициализация и запуск
+window.i18n.init().then(() => {
+    // После загрузки JSON — кидаем событие (уже есть внутри init, но на всякий случай дублируем)
+    console.log('✅ I18n полностью загружен и готов');
+}).catch(err => {
+    console.error('❌ Ошибка инициализации i18n:', err);
 });

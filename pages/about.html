@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
         <title>Catminefy</title>
 
         <link rel="stylesheet" href="../assets/css/general.css">
@@ -18,72 +19,68 @@
         <div class="sidebar">
             <a href="home.html" class="sidebar-item">
                 <span class="icon">&#xf46d;</span>
-                <span class="label">Главная</span>
-                <span class="tooltip">Главная</span>
+                <span class="label" data-translate="tabs.home">Главная</span>
+                <span class="tooltip" data-translate="tabs.home">Главная</span>
             </a>
             
             <div class="sidebar-divider"></div>
             
             <a href="gradient-generator.html" class="sidebar-item">
                 <span class="icon">&#xf174a;</span>
-                <span class="label">Генератор градиентов</span>
-                <span class="tooltip">Генератор градиентов</span>
+                <span class="label" data-translate="tabs.gradient_generator">Генератор градиентов</span>
+                <span class="tooltip" data-translate="tabs.gradient_generator">Генератор градиентов</span>
             </a>
             
             <a href="text-customize.html" class="sidebar-item">
                 <span class="icon">&#xf0061;</span>
-                <span class="label">Кастомизация текста</span>
-                <span class="tooltip">Кастомизация текста</span>
+                <span class="label" data-translate="tabs.customize_text">Кастомизация текста</span>
+                <span class="tooltip" data-translate="tabs.customize_text">Кастомизация текста</span>
             </a>
             
             <div class="sidebar-divider"></div>
             
             <a href="settings.html" class="sidebar-item">
                 <span class="icon">&#xf423;</span>
-                <span class="label">Настройки</span>
-                <span class="tooltip">Настройки</span>
+                <span class="label" data-translate="tabs.settings">Настройки</span>
+                <span class="tooltip" data-translate="tabs.settings">Настройки</span>
             </a>
             
             <a href="special.html" class="sidebar-item">
                 <span class="icon">&#xf51b;</span>
-                <span class="label">Специальные возможности</span>
-                <span class="tooltip">Специальные возможности</span>
+                <span class="label" data-translate="tabs.accessbility">Специальные возможности</span>
+                <span class="tooltip" data-translate="tabs.accessbility">Специальные возможности</span>
             </a>
             
             <a href="#" class="sidebar-item active">
                 <span class="icon">&#xf420;</span>
-                <span class="label">О программе</span>
-                <span class="tooltip">О программе</span>
+                <span class="label" data-translate="tabs.about">О программе</span>
+                <span class="tooltip" data-translate="tabs.about">О программе</span>
             </a>
         </div>
 
         <div class="content">
             <section id="top">
-                <h1>О программе</h1>
+                <h1 data-translate="app.about.title">О программе</h1>
             </section>
 
             <section>
-                <h2>Благодарности</h2>
+                <h2 data-translate="app.about.content.subtitles.thanks">Благодарности</h2>
                 <h4>Faithful</h4>
-                <p>GUI originally from Faithful 32x. <a href="https://faithfulpack.net/" target="_blank">https://faithfulpack.net/</a></p>
+                <p data-translate="app.about.content.thanks.faithful.description">GUI originally from Faithful 32x. <a href="https://faithfulpack.net/" target="_blank">https://faithfulpack.net/</a></p>
 
                 <hr>
     
                 <h4>Nerd Fonts</h4>
-                <p>
-                    Огромное спасибо проекту <a href="https://www.nerdfonts.com/" target="_blank">Nerd Fonts</a> за иконки.
-                </p>
+                <p data-translate="app.about.content.thanks.nerd_fonts.description">Огромное спасибо проекту <a href="https://www.nerdfonts.com/" target="_blank">Nerd Fonts</a> за иконки.</p>
 
                 <hr>
     
                 <h4>Monocraft</h4>
-                <p>
-                    Огромное спасибо <a href="https://github.com/IdreesInc" target="_blank">Idrees Hassan</a> за <a href="https://github.com/IdreesInc/Monocraft" target="_blank">Monocraft</a>.
-                </p>
+                <p data-translate="app.about.content.thanks.monocraft.description">Огромное спасибо <a href="https://github.com/IdreesInc" target="_blank">Idrees Hassan</a> за <a href="https://github.com/IdreesInc/Monocraft" target="_blank">Monocraft</a>.</p>
             </section>
 
             <section>
-                <h2>Лицензии</h2>
+                <h2 data-translate="app.about.content.subtitles.licenses">Лицензии</h2>
                 <div>
                     <h4>Catminefy</h4>
                     <div class="code-block" data-lang="txt">

@@ -44,14 +44,33 @@
                             "text_input": "Текст (По умолчанию: Catminefy)",
                             "min_colors_count": "Минимум (По умолчанию: 2)",
                             "max_colors_count": "Максимум (По умолчанию: 6)"
-                        }
+                        },
+                        "invalid_hex": "Используй HEX: #ff6b35",
+                        "min_colors": "Нужно минимум 2 цвета",
+                        "color_added": "Цвет добавлен",
+                        "color_removed": "Цвет удалён",
+                        "total_colors": "Всего цветов",
+                        "cleared": "Очищено",
+                        "left_2_colors": "Оставлено 2 цвета",
+                        "random_colors": "Случайные цвета",
+                        "generated": "Сгенерировано",
+                        "colors_lower": "цветов"
                     }
                 },
                 "favorites": {
                     "title": "Избранное",
                     "content": {
                         "buttons": { "clear_favorites": "☠ Очистить избранное" },
-                        "placeholders": { "empty_favorites": "Нет избранных градиентов. Нажмите ★ у заготовки или кастомного градиента." }
+                        "placeholders": {
+                            "empty_favorites": "Нет избранных градиентов. Нажмите ★ у заготовки или кастомного градиента.",
+                            "custom": "кастомный",
+                            "custom_gradient": "Кастомный градиент"
+                        },
+                        "added": "Добавлено в избранное",
+                        "removed": "Убрано из избранного",
+                        "cleared": "Избранное очищено",
+                        "all_deleted": "Все записи удалены",
+                        "clear_all_confirm": "Очистить всё избранное?"
                     }
                 },
                 "history": {
@@ -63,9 +82,18 @@
                         },
                         "placeholders": {
                             "empty_history_last": "История пуста. Используйте градиенты, они будут появляться здесь.",
-                            "empty_history_full": "История пуста"
+                            "empty_history_full": "История пуста",
+                            "custom": "кастомный",
+                            "custom_gradient": "Кастомный градиент"
                         },
-                        "modal": { "title": "Вся история" }
+                        "modal": { "title": "Вся история" },
+                        "gradient_applied": "Градиент применён",
+                        "history_cleared": "История очищена",
+                        "all_entries_deleted": "Все записи удалены",
+                        "last_ten_deleted": "Последние 10 записей удалены",
+                        "click_for_full_history": "Нажмите для просмотра всей истории",
+                        "clear_full_history_confirm": "Удалить всю историю?",
+                        "clear_last_ten_confirm": "Очистить последние 10 записей?"
                     }
                 },
                 "templates": {
@@ -107,8 +135,12 @@
                             "de_la_france": "Де ля Франце",
                             "italian_monster": "Итальянский монстр",
                             "cyber": "Киберпанк",
+                            "mint": "Мята",
                             "sunset": "Закатный градиент"
-                        }
+                        },
+                        "template_applied": "Заготовка применена",
+                        "applied": "✔ Применено",
+                        "color_copied": "Цвет скопирован"
                     }
                 }
             }
@@ -122,12 +154,16 @@
                 "themes": {
                     "current_theme": "Текущая тема: ",
                     "light": "Светлая тема",
-                    "dark": "Темная тема"
+                    "dark": "Темная тема",
+                    "change_title": "Смена темы",
+                    "change_message": "Применена тема: {theme}"
                 },
                 "langs": {
                     "current_lang": "Текущий язык: ",
                     "ru_RU": "Русский язык",
-                    "en_US": "Английский язык"
+                    "en_US": "Английский язык",
+                    "change_title": "Смена языка",
+                    "change_message": "Применён язык: {lang}"
                 },
                 "buttons": {
                     "clear_cache": "Очистить кэш",
@@ -168,7 +204,19 @@
                 },
                 "app_cache": {
                     "cache_size": "Размер кэша: ",
-                    "cant_get_cache_size": "Ошибка"
+                    "cant_get_cache_size": "Ошибка",
+                    "clear_confirm": "Вы уверены, что хотите очистить кэш приложения?",
+                    "clearing": "Очистка...",
+                    "cleared": "Кэш очищен",
+                    "view_in": "Единицы измерения: ",
+                    "options": {
+                        "gib": "Гибибайты",
+                        "gb": "Гигабайты"
+                    },
+                    "views": {
+                        "gib": "ГиБ",
+                        "gb": "ГБ"
+                    }
                 },
                 "subtitles": {
                     "theme": "Тема",
@@ -185,19 +233,20 @@
         "about": {
             "title": "О программе",
             "content": {
-                "subtitles": {
-                    "thanks": {
-                        "title": "Благодарности",
-                        "faithful": {
-                            "description": "Может быть в будущем Catminefy GUI будет originally from Faithful 32x. <a href=\"https://faithfulpack.net/\" target=\"_blank\">https://faithfulpack.net/</a>"
-                        },
-                        "nerd_fonts": {
-                            "description": "Огромное спасибо проекту <a href=\"https://www.nerdfonts.com/\" target=\"_blank\">Nerd Fonts</a> за иконки"
-                        },
-                        "moncraft": {
-                            "description": "Огромное спасибо <a href=\"https://github.com/IdreesInc\" target=\"_blank\">Idrees Hassan</a> за <a href=\"https://github.com/IdreesInc/Monocraft\" target=\"_blank\">Monocraft</a>"
-                        }
+                "thanks": {
+                    "faithful": {
+                        "description": "Может быть в будущем Catminefy GUI будет originally from Faithful 32x. <a href=\"https://faithfulpack.net/\" target=\"_blank\">https://faithfulpack.net/</a>"
+                    },
+                    "nerd_fonts": {
+                        "description": "Огромное спасибо проекту <a href=\"https://www.nerdfonts.com/\" target=\"_blank\">Nerd Fonts</a> за иконки"
+                    },
+                    "moncraft": {
+                        "description": "Огромное спасибо <a href=\"https://github.com/IdreesInc\" target=\"_blank\">Idrees Hassan</a> за <a href=\"https://github.com/IdreesInc/Monocraft\" target=\"_blank\">Monocraft</a>"
                     }
+                },
+                "subtitles": {
+                    "thanks": "Благодарности",
+                    "licenses": "Лицензии"
                 }
             }
         }

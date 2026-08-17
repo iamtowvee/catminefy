@@ -18,5 +18,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
         ipcRenderer.on('clear-all-notifications', () => callback());
         return () => ipcRenderer.removeAllListeners('clear-all-notifications');
     },
-    resizeWindow: (width, height) => ipcRenderer.send('resize-window', width, height)
+    resizeWindow: (width, height) => ipcRenderer.send('resize-window', width, height),
+    getCacheSize: () => ipcRenderer.invoke('get-cache-size'),
+    clearCache: () => ipcRenderer.invoke('clear-cache'),
+    getCachePath: () => ipcRenderer.invoke('get-cache-path')
 });

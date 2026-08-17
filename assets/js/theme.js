@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
         console.warn('Элемент #curTheme не найден');
     }
     
+    // ✅ РЕГИСТРИРУЕМ #curTheme С ПРАВИЛЬНЫМ КЛЮЧОМ
+    if (window.i18n) {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        const key = currentTheme === 'light' ? 'light' : 'dark';
+        window.i18n.register(curt, `app.settings.content.themes.${key}`, 'Светлая тема');
+    }
+    
     let currentTheme = localStorage.getItem('theme') || 'light';
     
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -31,11 +38,22 @@ document.addEventListener('DOMContentLoaded', function() {
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             
-            const themeName = newTheme === 'light' ? 'Светлая тема' : 'Темная тема';
-            window.notifications.success('Смена темы', `Применена тема: ${themeName}`);
+            // ✅ ОБНОВЛЯЕМ РЕГИСТРАЦИЮ #curTheme
+            if (window.i18n) {
+                const key = newTheme === 'light' ? 'light' : 'dark';
+                window.i18n.register(curt, `app.settings.content.themes.${key}`, 'Светлая тема');
+                window.i18n._updateAll();
+            }
             
             updateCurrentThemeDisplay(newTheme, curt);
             updateActiveButton(newTheme, themeButtons);
+            
+            const themeKey = newTheme === 'light' ? 'light' : 'dark';
+            const themeName = window.i18n ? window.i18n.t(`app.settings.content.themes.${themeKey}`) : (newTheme === 'light' ? 'Светлая тема' : 'Темная тема');
+            const title = window.i18n ? window.i18n.t('app.settings.content.themes.change_title', 'Смена темы') : 'Смена темы';
+            const message = window.i18n ? window.i18n.t('app.settings.content.themes.change_message', 'Применена тема: {theme}').replace('{theme}', themeName) : `Применена тема: ${themeName}`;
+            
+            window.notifications.success(title, message);
         });
     });
 });
@@ -51,9 +69,8 @@ function updateActiveButton(theme, buttons) {
 }
 
 function updateCurrentThemeDisplay(theme, element) {
-    const themeNames = {
-        'light': 'Светлая тема',
-        'dark': 'Темная тема'
-    };
-    element.textContent = themeNames[theme] || theme;
+    if (!element) return;
+    if (!window.i18n) {
+        element.textContent = theme === 'light' ? 'Светлая тема' : 'Темная тема';
+    }
 }

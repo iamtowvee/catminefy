@@ -1938,6 +1938,9 @@ blockquote p {
     font-size: 0.8rem;
     word-break: keep-all;
     color: var(--text-primary);
+    line-height: 1.4;
+    padding: 0.25rem 0.7rem;
+    vertical-align: middle;
     text-shadow: 1px 1px 0px var(--bg-footer);
 }
 
@@ -1976,6 +1979,8 @@ blockquote p {
     word-break: keep-all;
     font-size: 0.8rem;
     cursor: pointer;
+    line-height: 1.4;
+    vertical-align: middle;
     transition: background 0.3s, transform 0.2s;
 }
 
@@ -2034,7 +2039,6 @@ blockquote p {
 
 .template-colors .color-dot:hover {
     transform: scale(1.15);
-    border-color: var(--accent-primary);
 }
 
 /* Анимация появления */
@@ -2236,10 +2240,12 @@ blockquote p {
 .favorite-btn {
     background: none;
     border: none;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: transform 0.2s, color 0.2s;
-    padding: 0 0.1rem;
+    padding: 0.25rem 0.1rem;
+    vertical-align: middle;
+    line-height: 1.4;
     color: var(--text-secondary);
     font-family: 'Monocraft', monospace;
 }

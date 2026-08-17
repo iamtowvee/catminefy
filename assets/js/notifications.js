@@ -292,14 +292,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const isErrors = document.getElementById('isErrors');
         const isSuccesses = document.getElementById('isSuccesses');
         
-        const yes = t('app.settings.content.notifications.values.yes', '✔ Да');
-        const no = t('app.settings.content.notifications.values.no', '✘ Нет');
+        // ✅ РЕГИСТРИРУЕМ ЭЛЕМЕНТЫ ДЛЯ АВТООБНОВЛЕНИЯ
+        if (window.i18n) {
+            // Регистрируем каждый элемент с его текущим ключом
+            const currentLang = localStorage.getItem('lang') || 'ru_RU';
+            
+            // Для каждого элемента проверяем, включён ли он, и регистрируем с правильным значением
+            const elements = [
+                { el: isNotifs, key: 'notifs' },
+                { el: isWarns, key: 'warns' },
+                { el: isErrors, key: 'errors' },
+                { el: isSuccesses, key: 'successes' }
+            ];
+            
+            elements.forEach(({ el, key }) => {
+                if (el) {
+                    const value = settings[key];
+                    // Регистрируем с ключом yes или no в зависимости от значения
+                    const valueKey = value ? 'yes' : 'no';
+                    const translateKey = `app.settings.content.notifications.values.${valueKey}`;
+                    window.i18n.register(el, translateKey, value ? '✔ Да' : '✘ Нет', 'innerHTML');
+                }
+            });
+        }
         
-        if (isNotifs) isNotifs.innerHTML = settings.notifs ? `<span class="ans-icon"><span style="color: var(--green);">${yes}</span></span>` : `<span class="ans-icon"><span style="color: var(--red);">${no}</span></span>`;
-        if (isWarns) isWarns.innerHTML = settings.warns ? `<span class="ans-icon"><span style="color: var(--green);">${yes}</span></span>` : `<span class="ans-icon"><span style="color: var(--red);">${no}</span></span>`;
-        if (isErrors) isErrors.innerHTML = settings.errors ? `<span class="ans-icon"><span style="color: var(--green);">${yes}</span></span>` : `<span class="ans-icon"><span style="color: var(--red);">${no}</span></span>`;
-        if (isSuccesses) isSuccesses.innerHTML = settings.successes ? `<span class="ans-icon"><span style="color: var(--green);">${yes}</span></span>` : `<span class="ans-icon"><span style="color: var(--red);">${no}</span></span>`;
-
+        // Обновляем активные кнопки (это не требует перевода)
         document.querySelectorAll('.toNotifs').forEach(btn => {
             btn.classList.remove('active');
             

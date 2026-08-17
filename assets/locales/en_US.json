@@ -44,14 +44,33 @@
                             "text_input": "Text (Default: Catminefy)",
                             "min_colors_count": "Min (Default: 2)",
                             "max_colors_count": "Max (Default: 6)"
-                        }
+                        },
+                        "invalid_hex": "Use HEX: #ff6b35",
+                        "min_colors": "Minimum 2 colors required",
+                        "color_added": "Color added",
+                        "color_removed": "Color removed",
+                        "total_colors": "Total colors",
+                        "cleared": "Cleared",
+                        "left_2_colors": "Left 2 colors",
+                        "random_colors": "Random colors",
+                        "generated": "Generated",
+                        "colors_lower": "colors"
                     }
                 },
                 "favorites": {
                     "title": "Favorites",
                     "content": {
                         "buttons": { "clear_favorites": "☠ Clear Favorites" },
-                        "placeholders": { "empty_favorites": "No favorite gradients. Click ★ on a template or custom gradient." }
+                        "placeholders": {
+                            "empty_favorites": "No favorite gradients. Click ★ on a template or custom gradient.",
+                            "custom": "custom",
+                            "custom_gradient": "Custom gradient"
+                        },
+                        "added": "Added to favorites",
+                        "removed": "Removed from favorites",
+                        "cleared": "Favorites cleared",
+                        "all_deleted": "All entries deleted",
+                        "clear_all_confirm": "Clear all favorites?"
                     }
                 },
                 "history": {
@@ -63,9 +82,18 @@
                         },
                         "placeholders": {
                             "empty_history_last": "History is empty. Use gradients, they will appear here.",
-                            "empty_history_full": "History is empty"
+                            "empty_history_full": "History is empty",
+                            "custom": "custom",
+                            "custom_gradient": "Custom gradient"
                         },
-                        "modal": { "title": "Full History" }
+                        "modal": { "title": "Full History" },
+                        "gradient_applied": "Gradient applied",
+                        "history_cleared": "History cleared",
+                        "all_entries_deleted": "All entries deleted",
+                        "last_ten_deleted": "Last 10 entries deleted",
+                        "click_for_full_history": "Click to view full history",
+                        "clear_full_history_confirm": "Delete full history?",
+                        "clear_last_ten_confirm": "Clear last 10 entries?"
                     }
                 },
                 "templates": {
@@ -107,8 +135,12 @@
                             "de_la_france": "De la France",
                             "italian_monster": "Italian Monster",
                             "cyber": "Cyberpunk",
+                            "mint": "Mint",
                             "sunset": "Sunset Gradient"
-                        }
+                        },
+                        "template_applied": "Template applied",
+                        "applied": "✔ Applied",
+                        "color_copied": "Color copied"
                     }
                 }
             }
@@ -122,12 +154,16 @@
                 "themes": {
                     "current_theme": "Current theme: ",
                     "light": "Light Theme",
-                    "dark": "Dark Theme"
+                    "dark": "Dark Theme",
+                    "change_title": "Theme changed",
+                    "change_message": "Applied theme: {theme}"
                 },
                 "langs": {
                     "current_lang": "Current language: ",
                     "ru_RU": "Russian",
-                    "en_US": "English"
+                    "en_US": "English",
+                    "change_title": "Language changed",
+                    "change_message": "Applied language: {lang}"
                 },
                 "buttons": {
                     "clear_cache": "Clear Cache",
@@ -167,8 +203,20 @@
                     }
                 },
                 "app_cache": {
-                    "cache_size": "Cache Size: ",
-                    "cant_get_cache_size": "Error"
+                    "cache_size": "Cache size: ",
+                    "cant_get_cache_size": "Error",
+                    "clear_confirm": "Are you sure you want to clear the app cache?",
+                    "clearing": "Clearing...",
+                    "cleared": "Cache cleared",
+                    "view_in": "Units: ",
+                    "options": {
+                        "gib": "Gibibytes",
+                        "gb": "Gigabytes"
+                    },
+                    "views": {
+                        "gib": "GiB",
+                        "gb": "GB"
+                    }
                 },
                 "subtitles": {
                     "theme": "Theme",
@@ -185,19 +233,20 @@
         "about": {
             "title": "About",
             "content": {
-                "subtitles": {
-                    "thanks": {
-                        "title": "Credits",
-                        "faithful": {
-                            "description": "Maybe in the future Catminefy GUI will be originally from Faithful 32x. <a href=\"https://faithfulpack.net/\" target=\"_blank\">https://faithfulpack.net/</a>"
-                        },
-                        "nerd_fonts": {
-                            "description": "Huge thanks to <a href=\"https://www.nerdfonts.com/\" target=\"_blank\">Nerd Fonts</a> for the icons"
-                        },
-                        "moncraft": {
-                            "description": "Huge thanks to <a href=\"https://github.com/IdreesInc\" target=\"_blank\">Idrees Hassan</a> for <a href=\"https://github.com/IdreesInc/Monocraft\" target=\"_blank\">Monocraft</a>"
-                        }
+                "thanks": {
+                    "faithful": {
+                        "description": "Maybe in the future Catminefy GUI will be originally from Faithful 32x. <a href=\"https://faithfulpack.net/\" target=\"_blank\">https://faithfulpack.net/</a>"
+                    },
+                    "nerd_fonts": {
+                        "description": "Huge thanks to <a href=\"https://www.nerdfonts.com/\" target=\"_blank\">Nerd Fonts</a> for the icons"
+                    },
+                    "moncraft": {
+                        "description": "Huge thanks to <a href=\"https://github.com/IdreesInc\" target=\"_blank\">Idrees Hassan</a> for <a href=\"https://github.com/IdreesInc/Monocraft\" target=\"_blank\">Monocraft</a>"
                     }
+                },
+                "subtitles": {
+                    "thanks": "Credits",
+                    "licenses": "Licenses"
                 }
             }
         }
@@ -210,7 +259,7 @@
             "ok": "OK"
         },
         "texts": {
-            "warn": "Warning"
+            "warn": "Attention"
         },
         "footer": {
             "spoiler": "NOT AN OFFICIAL MOJANG PRODUCT AND NOT APPROVED BY MOJANG. Catminefy is not affiliated with Mojang or Microsoft."

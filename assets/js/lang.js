@@ -13,6 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
+    // ✅ РЕГИСТРИРУЕМ #curLang С ПРАВИЛЬНЫМ КЛЮЧОМ
+    if (window.i18n) {
+        // Текущий язык — храним в localStorage
+        const currentLang = localStorage.getItem('lang') || 'ru_RU';
+        // Регистрируем с ключом названия языка
+        window.i18n.register(curt, `app.settings.content.langs.${currentLang}`, 'Русский язык');
+    }
+    
     let curLang = localStorage.getItem('lang') || 'ru_RU';
     localStorage.setItem('lang', curLang);
     
@@ -30,11 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             localStorage.setItem('lang', newLang);
             
-            // Уведомление через i18n
             if (window.i18n) {
+                // Меняем язык
                 window.i18n.setLanguage(newLang);
-                const langName = newLang === 'ru_RU' ? 'Русский' : 'English';
-                window.notifications.info('Смена языка', `Применён язык: ${langName}`);
+                // Обновляем регистрацию #curLang на новый ключ
+                window.i18n.register(curt, `app.settings.content.langs.${newLang}`, 'Русский язык');
+                // Принудительно обновляем
+                window.i18n._updateAll();
             }
             
             updateCurrentLanguageDisplay(newLang, curt);
@@ -54,9 +64,9 @@ function updateActiveButton(lang, buttons) {
 }
 
 function updateCurrentLanguageDisplay(lang, element) {
-    const langNames = {
-        'ru_RU': 'Русский',
-        'en_US': 'English'
-    };
-    element.textContent = langNames[lang] || lang;
+    if (!element) return;
+    // Уже обновится через регистрацию, но на всякий случай
+    if (!window.i18n) {
+        element.textContent = lang === 'ru_RU' ? 'Русский язык' : 'English';
+    }
 }

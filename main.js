@@ -50,6 +50,112 @@ ipcMain.on('clear-all-notifications', () => {
   });
 });
 
+// ============================
+// КЭШ ПРИЛОЖЕНИЯ
+// ============================
+
+/**
+ * Получить размер папки рекурсивно
+ */
+async function getFolderSize(folderPath) {
+    let totalSize = 0;
+    try {
+        const files = await fs.readdir(folderPath, { withFileTypes: true });
+        for (const file of files) {
+            const filePath = path.join(folderPath, file.name);
+            if (file.isDirectory()) {
+                totalSize += await getFolderSize(filePath);
+            } else {
+                const stats = await fs.stat(filePath);
+                totalSize += stats.size;
+            }
+        }
+    } catch (error) {
+        // Если папки нет или ошибка доступа
+        return 0;
+    }
+    return totalSize;
+}
+
+/**
+ * Форматировать размер в удобный вид
+ */
+function formatSize(bytes) {
+    if (bytes === 0) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+/**
+ * Получить путь к кэшу приложения
+ */
+function getCachePath() {
+    const appName = app.getName() || 'catminefy';
+    const cacheDir = path.join(app.getPath('userData'), 'Cache');
+    return cacheDir;
+}
+
+// IPC: Получить размер кэша
+ipcMain.handle('get-cache-size', async () => {
+    try {
+        const cachePath = getCachePath();
+        const size = await getFolderSize(cachePath);
+        return { success: true, size: size, formatted: formatSize(size) };
+    } catch (error) {
+        console.error('Ошибка получения размера кэша:', error);
+        return { success: false, error: error.message };
+    }
+});
+
+// IPC: Очистить кэш
+ipcMain.handle('clear-cache', async () => {
+    try {
+        const cachePath = getCachePath();
+        
+        // Проверяем, существует ли папка
+        try {
+            await fs.access(cachePath);
+        } catch {
+            return { success: true, message: 'Кэш уже пуст' };
+        }
+        
+        // Удаляем всё содержимое папки
+        const files = await fs.readdir(cachePath);
+        let deletedCount = 0;
+        let deletedSize = 0;
+        
+        for (const file of files) {
+            const filePath = path.join(cachePath, file);
+            const stats = await fs.stat(filePath);
+            if (stats.isDirectory()) {
+                deletedSize += await getFolderSize(filePath);
+                await fs.rm(filePath, { recursive: true, force: true });
+            } else {
+                deletedSize += stats.size;
+                await fs.unlink(filePath);
+            }
+            deletedCount++;
+        }
+        
+        return {
+            success: true,
+            message: `Очищено ${deletedCount} элементов (${formatSize(deletedSize)})`,
+            deletedCount,
+            deletedSize
+        };
+    } catch (error) {
+        console.error('Ошибка очистки кэша:', error);
+        return { success: false, error: error.message };
+    }
+});
+
+// IPC: Получить путь к кэшу (для отладки)
+ipcMain.handle('get-cache-path', () => {
+    return getCachePath();
+});
+
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1280,
